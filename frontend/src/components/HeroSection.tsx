@@ -4,12 +4,12 @@ import { useState, useEffect, useCallback } from "react";
 
 const heroSlides = [
     {
-        src: "/images/1.png",
-        alt: "Aerial view of Shiv Mines and Minerals silica mine and quarry operations",
-    },
-    {
         src: "/images/2.png",
         alt: "Silica sand processing plant and machinery",
+    },
+    {
+        src: "/images/1.png",
+        alt: "Aerial view of Shiv Mines and Minerals silica mine and quarry operations",
     },
     {
         src: "/images/3.png",
@@ -129,8 +129,8 @@ const HeroSection = () => {
                         key={index}
                         onClick={() => goToSlide(index)}
                         className={`relative h-2 rounded-full transition-all duration-500 ${index === currentSlide
-                                ? "w-8 bg-accent"
-                                : "w-2 bg-white/40 hover:bg-white/60"
+                            ? "w-8 bg-accent"
+                            : "w-2 bg-white/40 hover:bg-white/60"
                             }`}
                         aria-label={`Go to slide ${index + 1}`}
                     >
