@@ -91,6 +91,40 @@ const productData: Record<string, { name: string; description: string; image: st
             { title: 'Controlled Particle Size', description: 'Precise sizing for optimal melting and homogeneity.' },
         ],
     },
+    'frac-sand': {
+        name: 'Frac Sand (Oil & Gas)',
+        seoTitle: 'Premium Frac Sand for Oil & Gas | High Crush Strength | Shiv Minerals',
+        seoDescription: 'High-quality monocrystalline silica frac sand designed for hydraulic fracturing. Superior crush strength, high sphericity, and optimal conductivity. Supplied by Shiv Minerals.',
+        description: 'Shiv Mines and Minerals provides premium Frac Sand specifically engineered for the oil and gas industry\'s hydraulic fracturing operations. Our monocrystalline silica sand is characterized by its exceptional crush strength, high sphericity, and roundness. These critical properties ensure maximum conductivity and sustained production rates in complex reservoir conditions.',
+        image: '/images/1.png', // Using an existing quarry image as a placeholder
+        applications: [
+            { title: 'Hydraulic Fracturing', description: 'Keeps fractures open to allow efficient hydrocarbon extraction.' },
+            { title: 'Well Stimulation', description: 'Enhances flow rates and maximizes well productivity.' },
+            { title: 'Deep Well Operations', description: 'Maintains structural integrity under extreme downhole pressures.' },
+        ],
+        features: [
+            { title: 'High Crush Strength', description: 'Withstands closure stresses of deep reservoir formations.' },
+            { title: 'High Sphericity & Roundness', description: 'Optimizes permeability and fluid flow characteristics.' },
+            { title: 'Superior Conductivity', description: 'Maximizes long-term well production potential.' },
+        ],
+    },
+    'custom-specification': {
+        name: 'Custom Specification Sand',
+        seoTitle: 'Custom Silica Sand Specifications | Tailored Mining | Shiv Minerals',
+        seoDescription: 'Need specific silica sand grades? Shiv Mines and Minerals offers custom mining, processing, and sizing to meet your exact industrial requirements.',
+        description: 'At Shiv Mines and Minerals, we understand that certain specialized applications require precise silica sand specifications that fall outside standard industry grades. We offer custom mining, washing, and sizing services to deliver silica sand engineered exactly to your chemical and physical requirements. Our advanced processing capabilities allow us to adjust SiO2 purity, iron content, and particle size distribution (PSD) to your precise needs.',
+        image: '/images/3.png', // Using the stockpiles image
+        applications: [
+            { title: 'Specialty Manufacturing', description: 'Tailored silica for unique industrial or chemical processes.' },
+            { title: 'Advanced Ceramics', description: 'Custom-graded sand for specialized ceramic production.' },
+            { title: 'Specific Filtration Needs', description: 'Custom sized media for specialized water treatment systems.' },
+        ],
+        features: [
+            { title: 'Custom PSD', description: 'Precise particle size distribution to your exact sieve requirements.' },
+            { title: 'Controlled Chemistry', description: 'Customized purity levels targeting specific SiO2 and Fe2O3 limits.' },
+            { title: 'Scalable Production', description: 'Capable of fulfilling both specialized small batches and large volume orders.' },
+        ],
+    },
 };
 
 export default function ProductDetail() {
