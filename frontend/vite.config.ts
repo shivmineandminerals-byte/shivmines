@@ -8,7 +8,7 @@ export default defineConfig({
   plugins: [
     react(),
     Sitemap({
-      hostname: 'https://shivminerals.com',
+      hostname: 'https://shivmines.in',
       dynamicRoutes: [
         '/products/construction-sand',
         '/products/industrial-sand',

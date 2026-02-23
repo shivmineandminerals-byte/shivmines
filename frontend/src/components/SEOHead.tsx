@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 
-const SITE_URL = 'https://shivminerals.com';
+const SITE_URL = 'https://shivmines.in';
 const SITE_NAME = 'Shiv Mines and Minerals';
 const DEFAULT_IMAGE = `${SITE_URL}/images/hero-quarry.jpg`;
 
