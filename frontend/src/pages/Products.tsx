@@ -82,10 +82,10 @@ export default function Products() {
     return (
         <div className="min-h-screen bg-white">
             <SEOHead
-                title="Silica Sand Products Rajasthan | Construction, Industrial, Glass & Foundry Sand"
-                description="Buy premium silica sand from Rajasthan's top mine — Shiv Mines and Minerals. Construction, industrial (99%+ SiO₂), foundry, and glass grade (99.5% SiO₂) silica sand. Lab-tested, export-ready."
+                title="Silica Sand Products from Rajasthan's Top Mines | Construction, Industrial, Glass & Foundry Sand"
+                description="Buy premium silica sand from Rajasthan's leading silica mines — Shiv Mines and Minerals. Construction, industrial (99%+ SiO₂), foundry, and glass grade (99.5% SiO₂) silica sand from our mines in Rajasthan. Lab-tested, export-ready."
                 canonical="/products"
-                keywords="silica sand products, silica sand Rajasthan, construction sand Rajasthan, industrial sand India, glass sand supplier, foundry sand, silica sand buy, silica sand price, silica sand manufacturer Rajasthan"
+                keywords="silica sand products rajasthan, silica sand from rajasthan mines, construction sand rajasthan, industrial sand india, glass sand supplier rajasthan, foundry sand, silica sand buy rajasthan, silica sand price rajasthan, silica sand manufacturer rajasthan, silica mines in rajasthan products"
                 schemaMarkup={[breadcrumbSchema, itemListSchema]}
             />
             <Header />
@@ -121,7 +121,7 @@ export default function Products() {
                             Premium Silica for Every Application
                         </h2>
                         <p className="text-slate-600 max-w-2xl">
-                            Our silica mine produces a complete range of high-purity silica sand products, each engineered
+                            Our silica mines in Rajasthan produce a complete range of high-purity silica sand products, each engineered
                             to meet specific industry requirements.
                         </p>
                     </motion.div>

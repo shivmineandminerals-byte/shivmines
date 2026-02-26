@@ -177,9 +177,9 @@ const HeroSection = () => {
                         transition={{ duration: 0.5, delay: 0.4 }}
                         className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-serif font-bold text-white mb-6 sm:mb-8 leading-[1.1]"
                     >
-                        Leading Silica Mine &
+                        Leading Silica Mines
                         <br />
-                        <span className="text-accent">Premium Sand Supplier</span>
+                        <span className="text-accent">in Rajasthan</span>
                     </motion.h1>
 
                     <motion.p
@@ -190,7 +190,7 @@ const HeroSection = () => {
                     >
                         With a daily production capacity of{" "}
                         <strong className="text-white">1,000 tonnes</strong>, our
-                        silica mine supplies high-purity sand to the world's leading
+                        silica mines in Rajasthan supply high-purity sand to the world's leading
                         glass, foundry, and construction industries.
                     </motion.p>
 

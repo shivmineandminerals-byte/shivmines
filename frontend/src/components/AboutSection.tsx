@@ -19,9 +19,9 @@ const AboutSection = () => {
                         transition={{ duration: 0.4 }}
                         variants={fadeIn}
                     >
-                        <p className="label-sm mb-4">About Our Silica Mine</p>
+                        <p className="label-sm mb-4">About Our Silica Mines in Rajasthan</p>
                         <h2 id="about-heading" className="heading-section mb-6">
-                            Trusted Silica Mining Company Building Industry Foundations
+                            Rajasthan's Trusted Silica Mining Company Building Industry Foundations
                         </h2>
                     </motion.div>
                     <motion.div

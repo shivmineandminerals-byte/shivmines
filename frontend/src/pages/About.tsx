@@ -41,10 +41,10 @@ export default function About() {
     return (
         <div className="min-h-screen bg-white">
             <SEOHead
-                title="About Shiv Mines & Minerals | Silica Mining Company Rajasthan Since 2006"
-                description="Learn about Shiv Mines and Minerals — Rajasthan's most trusted silica mining company since 2006. Vertically integrated operations in Karauli, 1,000 tonnes/day capacity, serving 45+ countries with premium silica sand."
+                title="About Shiv Mines & Minerals | Leading Silica Mines in Rajasthan Since 2006"
+                description="Shiv Mines and Minerals — Rajasthan's leading silica mines since 2006. Our silica mines in Karauli, Rajasthan produce 1,000 tonnes/day of premium construction, industrial, foundry & glass grade silica sand. Trusted silica mines serving 45+ countries."
                 canonical="/about"
-                keywords="about Shiv Minerals, silica mining company Rajasthan, silica mine Karauli, silica sand company India, mining operations Rajasthan, silica sand history, who we are Shiv Minerals"
+                keywords="silica mines in rajasthan, silica mines rajasthan, about shiv minerals, silica mining company rajasthan, silica mines karauli, silica sand company rajasthan, mining operations rajasthan, rajasthan silica mines, silica sand mines rajasthan"
                 schemaMarkup={[breadcrumbSchema]}
             />
             <Header />
@@ -59,7 +59,7 @@ export default function About() {
                     {...fadeInUp}
                     className="relative z-10 text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center"
                 >
-                    About Us
+                    About Us — Silica Mines in Rajasthan
                 </motion.h1>
             </section>
 
@@ -70,17 +70,17 @@ export default function About() {
                         <motion.div {...fadeInLeft}>
                             <p className="label-sm mb-4">Our Story</p>
                             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
-                                20+ Years of Mining Excellence
+                                Rajasthan's Premier Silica Mines — 20+ Years of Mining Excellence
                             </h2>
                             <p className="text-slate-600 leading-relaxed mb-6">
                                 Since 2006, <strong className="text-slate-900">Shiv Mines and Minerals</strong> has been at the forefront
-                                of India's silica mining industry. What began as a small quarry operation has grown into one of
-                                the most trusted names in premium silica sand production.
+                                of India's silica mining industry. Our silica mines in Rajasthan started as a small quarry operation
+                                and have grown into one of the most trusted names in premium silica sand production in Rajasthan.
                             </p>
                             <p className="text-slate-600 leading-relaxed mb-6">
-                                Our vertically integrated operations span from extraction at our premium silica quarry to
-                                advanced multi-stage processing and global distribution. With a daily production capacity
-                                of 1,000 tonnes, we serve industries across 45+ countries.
+                                Our silica mines in Rajasthan feature vertically integrated operations spanning from extraction at our premium
+                                silica quarry in Karauli to advanced multi-stage processing and global distribution. With a daily
+                                production capacity of 1,000 tonnes, our Rajasthan silica mines serve industries across 45+ countries.
                             </p>
                             <p className="text-slate-600 leading-relaxed">
                                 We are committed to sustainable mining practices, environmental stewardship, and delivering

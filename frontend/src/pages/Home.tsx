@@ -15,7 +15,7 @@ const organizationSchema = {
     "alternateName": "Shiv Minerals",
     "url": "https://shivmines.in",
     "logo": "https://shivmines.in/vite.svg",
-    "description": "India's leading silica sand mining company based in Rajasthan since 2006. Premium construction, industrial, foundry & glass grade silica sand supplier.",
+    "description": "Rajasthan's #1 silica mines — leading silica sand mining company based in Karauli, Rajasthan since 2006. Premium construction, industrial, foundry & glass grade silica sand supplier from our mines in Rajasthan.",
     "foundingDate": "2006",
     "numberOfEmployees": { "@type": "QuantitativeValue", "minValue": 50 },
     "areaServed": [
@@ -60,13 +60,13 @@ const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "@id": "https://shivmines.in/#localbusiness",
-    "name": "Shiv Mines and Minerals — Silica Mine Rajasthan",
+    "name": "Shiv Mines and Minerals — #1 Silica Mines in Rajasthan",
     "alternateName": "Shiv Minerals Karauli",
     "image": "https://shivmines.in/images/hero-quarry.jpg",
     "url": "https://shivmines.in",
     "telephone": "+91-9116758641",
     "email": "shivmineandminerals@gmail.com",
-    "description": "Premium silica sand mining and processing company in Karauli, Rajasthan. 1,000 tonnes/day capacity. Leading silica mine in Rajasthan serving 45+ countries with construction, industrial, foundry, and glass grade silica sand.",
+    "description": "Premium silica mines in Rajasthan — silica sand mining and processing company in Karauli, Rajasthan. 1,000 tonnes/day capacity. Leading silica mines in Rajasthan serving 45+ countries with construction, industrial, foundry, and glass grade silica sand.",
     "address": {
         "@type": "PostalAddress",
         "streetAddress": "Mining Lease M.L.No. 34/2006, Near Village - Raghuvanshi",
@@ -112,10 +112,10 @@ export default function Home() {
     return (
         <div className="min-h-screen bg-background">
             <SEOHead
-                title="Shiv Mines & Minerals | #1 Silica Sand Mine in Rajasthan, India"
-                description="Shiv Mines and Minerals — Rajasthan's leading silica sand mining company since 2006. Premium construction, industrial, foundry & glass grade silica sand from Karauli. 1,000 tonnes/day. Exports to 45+ countries."
+                title="Shiv Mines & Minerals | #1 Silica Mines in Rajasthan, India | Silica Sand Supplier"
+                description="Shiv Mines and Minerals — Rajasthan's leading silica mines and sand mining company since 2006. Premium construction, industrial, foundry & glass grade silica sand from our mines in Karauli, Rajasthan. 1,000 tonnes/day capacity. Exports to 45+ countries."
                 canonical="/"
-                keywords="silica mine, silica mine Rajasthan, silica sand, silica mining company, silica sand supplier India, silica sand Karauli, construction sand, industrial sand, glass sand, foundry sand, sand mining Rajasthan, silica quarry, silica sand exporter, Shiv Mines and Minerals"
+                keywords="silica mines in rajasthan, silica mine rajasthan, silica sand mines rajasthan, silica mining company rajasthan, silica sand supplier india, silica sand karauli, construction sand rajasthan, industrial sand, glass sand, foundry sand, sand mining rajasthan, silica quarry rajasthan, silica sand exporter, shiv mines and minerals, silica mines karauli, rajasthan silica sand"
                 schemaMarkup={[organizationSchema, localBusinessSchema, websiteSchema]}
             />
             <Header />
