@@ -12,7 +12,7 @@ const products = [
     {
         slug: 'construction-sand',
         name: 'Construction Sand',
-        image: '/images/product-construction-sand.jpg',
+        image: '/images/construction-sand.png',
         description: 'Premium construction grade silica sand for concrete, mortar, and asphalt applications.',
     },
     {
@@ -24,7 +24,7 @@ const products = [
     {
         slug: 'foundry-sand',
         name: 'Foundry Sand',
-        image: '/images/product-foundry-sand.jpg',
+        image: '/images/foundry-sand.png',
         description: 'Superior thermal resistance foundry silica sand for metal casting applications.',
     },
     {
