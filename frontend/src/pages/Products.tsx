@@ -39,8 +39,8 @@ const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://shivminerals.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://shivminerals.com/products" }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://shivmines.in/" },
+        { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://shivmines.in/products" }
     ]
 };
 
@@ -55,25 +55,25 @@ const itemListSchema = {
             "@type": "ListItem",
             "position": 1,
             "name": "Construction Grade Silica Sand",
-            "url": "https://shivminerals.com/products/construction-sand"
+            "url": "https://shivmines.in/products/construction-sand"
         },
         {
             "@type": "ListItem",
             "position": 2,
             "name": "Industrial Grade Silica Sand",
-            "url": "https://shivminerals.com/products/industrial-sand"
+            "url": "https://shivmines.in/products/industrial-sand"
         },
         {
             "@type": "ListItem",
             "position": 3,
             "name": "Foundry Grade Silica Sand",
-            "url": "https://shivminerals.com/products/foundry-sand"
+            "url": "https://shivmines.in/products/foundry-sand"
         },
         {
             "@type": "ListItem",
             "position": 4,
             "name": "Glass Grade Silica Sand",
-            "url": "https://shivminerals.com/products/glass-sand"
+            "url": "https://shivmines.in/products/glass-sand"
         }
     ]
 };

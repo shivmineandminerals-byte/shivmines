@@ -141,7 +141,7 @@ export default function ProductDetail() {
         "@type": "Product",
         "name": product.name,
         "description": product.description,
-        "image": `https://shivminerals.com${product.image}`,
+        "image": `https://shivmines.in${product.image}`,
         "brand": {
             "@type": "Brand",
             "name": "Shiv Mines and Minerals"
@@ -149,7 +149,7 @@ export default function ProductDetail() {
         "manufacturer": {
             "@type": "Organization",
             "name": "Shiv Mines and Minerals",
-            "url": "https://shivminerals.com"
+            "url": "https://shivmines.in"
         },
         "category": "Silica Sand"
     };
@@ -158,9 +158,9 @@ export default function ProductDetail() {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://shivminerals.com/" },
-            { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://shivminerals.com/products" },
-            { "@type": "ListItem", "position": 3, "name": product.name, "item": `https://shivminerals.com/products/${slug}` }
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://shivmines.in/" },
+            { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://shivmines.in/products" },
+            { "@type": "ListItem", "position": 3, "name": product.name, "item": `https://shivmines.in/products/${slug}` }
         ]
     };
 
@@ -170,7 +170,7 @@ export default function ProductDetail() {
                 title={product.seoTitle}
                 description={product.seoDescription}
                 canonical={`/products/${slug}`}
-                ogImage={`https://shivminerals.com${product.image}`}
+                ogImage={`https://shivmines.in${product.image}`}
                 keywords={`${product.name}, ${product.name} Rajasthan, ${product.name} supplier India, silica sand, buy ${product.name}, ${product.name} price, Shiv Minerals`}
                 schemaMarkup={[productSchema, breadcrumbSchema]}
             />

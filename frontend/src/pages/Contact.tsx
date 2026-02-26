@@ -13,11 +13,11 @@ const contactSchemas = [
     {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
-        "@id": "https://shivminerals.com/#localbusiness",
+        "@id": "https://shivmines.in/#localbusiness",
         "name": "Shiv Mines and Minerals",
         "telephone": "+91-9116758641",
         "email": "shivmineandminerals@gmail.com",
-        "url": "https://shivminerals.com/contact",
+        "url": "https://shivmines.in/contact",
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "Mining Lease M.L.No. 34/2006, Near Village - Raghuvanshi",
@@ -70,8 +70,8 @@ const contactSchemas = [
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://shivminerals.com/" },
-            { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://shivminerals.com/contact" }
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://shivmines.in/" },
+            { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://shivmines.in/contact" }
         ]
     }
 ];

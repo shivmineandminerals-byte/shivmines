@@ -32,8 +32,8 @@ const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://shivminerals.com/" },
-        { "@type": "ListItem", "position": 2, "name": "About Us", "item": "https://shivminerals.com/about" }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://shivmines.in/" },
+        { "@type": "ListItem", "position": 2, "name": "About Us", "item": "https://shivmines.in/about" }
     ]
 };
 
