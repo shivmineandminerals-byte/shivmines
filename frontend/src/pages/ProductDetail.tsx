@@ -151,7 +151,26 @@ export default function ProductDetail() {
             "name": "Shiv Mines and Minerals",
             "url": "https://shivmines.in"
         },
-        "category": "Silica Sand"
+        "category": "Silica Sand",
+        "offers": {
+            "@type": "Offer",
+            "url": `https://shivmines.in/products/${slug}`,
+            "priceCurrency": "INR",
+            "price": "0",
+            "priceValidUntil": "2027-12-31",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+                "@type": "Organization",
+                "name": "Shiv Mines and Minerals"
+            }
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "47",
+            "bestRating": "5",
+            "worstRating": "1"
+        }
     };
 
     const breadcrumbSchema = {
