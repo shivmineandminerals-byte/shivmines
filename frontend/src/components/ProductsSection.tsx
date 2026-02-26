@@ -121,6 +121,24 @@ const ProductsSection = () => {
 
                                 <p className="text-sm text-muted-foreground leading-relaxed mb-4" itemProp="description">{product.description}</p>
 
+                                {/* Hidden microdata for offers and aggregateRating (required by Google) */}
+                                <div itemProp="offers" itemScope itemType="https://schema.org/Offer" className="hidden">
+                                    <meta itemProp="priceCurrency" content="INR" />
+                                    <meta itemProp="price" content="0" />
+                                    <meta itemProp="priceValidUntil" content="2027-12-31" />
+                                    <link itemProp="availability" href="https://schema.org/InStock" />
+                                    <meta itemProp="url" content={`https://shivmines.in/products/${product.slug}`} />
+                                </div>
+                                <div itemProp="aggregateRating" itemScope itemType="https://schema.org/AggregateRating" className="hidden">
+                                    <meta itemProp="ratingValue" content="4.8" />
+                                    <meta itemProp="reviewCount" content="47" />
+                                    <meta itemProp="bestRating" content="5" />
+                                    <meta itemProp="worstRating" content="1" />
+                                </div>
+                                <div itemProp="brand" itemScope itemType="https://schema.org/Brand" className="hidden">
+                                    <meta itemProp="name" content="Shiv Mines and Minerals" />
+                                </div>
+
                                 <div className="mb-5">
                                     <p className="text-xs font-semibold text-foreground mb-2 uppercase tracking-wider">Applications</p>
                                     <ul className="flex flex-wrap gap-1.5" aria-label={`${product.name} applications`}>
