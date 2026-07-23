@@ -176,9 +176,9 @@ const HeroSection = () => {
                         transition={{ duration: 0.5, delay: 0.4 }}
                         className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-serif font-bold text-white mb-6 sm:mb-8 leading-[1.1]"
                     >
-                        Leading Silica Mines
+                        Silica Sand Supplier &
                         <br />
-                        <span className="text-accent">in Rajasthan</span>
+                        <span className="text-accent">Silica Mines in India</span>
                     </motion.h1>
 
                     <motion.p
@@ -187,10 +187,10 @@ const HeroSection = () => {
                         transition={{ duration: 0.5, delay: 0.6 }}
                         className="text-base sm:text-lg md:text-xl text-white/70 leading-relaxed mb-8 sm:mb-10 max-w-xl"
                     >
-                        With a daily production capacity of{" "}
-                        <strong className="text-white">2,000 tonnes</strong>, our
-                        silica mines in Rajasthan supply high-purity sand to the world's leading
-                        glass, foundry, and construction industries.
+                        From our mine in Karauli, Rajasthan, Shiv Mines and Minerals supplies
+                        high-purity silica sand and silica powder{" "}
+                        <strong className="text-white">across India and worldwide</strong> — to leading
+                        glass, foundry, construction and industrial buyers.
                     </motion.p>
 
                     <motion.div

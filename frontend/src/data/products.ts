@@ -167,7 +167,7 @@ export const products: ProductItem[] = [
         shortDescription: 'High-crush-strength monocrystalline proppant for hydraulic fracturing.',
         answerSnippet: 'Frac sand is a high-strength, well-rounded silica sand used as a proppant to hold hydraulic-fracturing fractures open in oil and gas wells. Shiv Mines and Minerals supplies monocrystalline frac sand with high crush strength, sphericity and conductivity.',
         description: 'Shiv Mines and Minerals provides frac sand engineered for the oil and gas industry\'s hydraulic fracturing operations. This monocrystalline silica sand offers high crush strength, sphericity and roundness — properties that support conductivity and sustained production in demanding reservoir conditions.',
-        image: '/images/frac-sand.png',
+        image: '/images/frac-sand.webp',
         applications: [
             { title: 'Hydraulic Fracturing', description: 'Keeps fractures open for efficient hydrocarbon extraction.' },
             { title: 'Well Stimulation', description: 'Enhances flow rates and well productivity.' },
@@ -198,7 +198,7 @@ export const products: ProductItem[] = [
         shortDescription: 'Tailored SiO₂ purity, iron content and particle size to your spec.',
         answerSnippet: 'Custom specification silica sand is silica sand processed to a buyer\'s exact chemistry and particle size distribution. Shiv Mines and Minerals offers custom mining, washing and sizing to target specific SiO₂ purity, iron content and PSD.',
         description: 'Some applications need silica sand specifications outside standard grades. Shiv Mines and Minerals offers custom mining, washing and sizing to deliver sand engineered to your chemical and physical requirements, adjusting SiO₂ purity, iron content and particle size distribution (PSD) to your needs.',
-        image: '/images/custom-specification-sand.png',
+        image: '/images/custom-specification-sand.webp',
         applications: [
             { title: 'Specialty Manufacturing', description: 'Tailored silica for unique industrial or chemical processes.' },
             { title: 'Advanced Ceramics', description: 'Custom-graded sand for specialised ceramic production.' },
@@ -229,7 +229,7 @@ export const products: ProductItem[] = [
         shortDescription: 'Ground quartz powder in 100 & 200 mesh for adhesives, putty, polishing and paints.',
         answerSnippet: 'Silica powder (quartz powder) is finely ground silica supplied in mesh grades such as 100 and 200 mesh. Shiv Mines and Minerals produces high-whiteness, low-iron silica powder (SiO₂ ~96–97%) for adhesives, tile compounds, wall putty, metal polishing compounds, paints and ceramics.',
         description: 'Shiv Mines and Minerals produces silica powder (also called quartz powder or pisai powder) by grinding its silica to fine mesh grades, commonly 100 mesh and 200 mesh. Independent laboratory analysis shows high silica content (SiO₂ ~96–97%), low iron (Fe₂O₃ from 0.076%) and high whiteness (84–87%), which makes it suitable for adhesives, tile and wall-putty compounds, metal polishing compounds (luster bars), paints and ceramics.',
-        image: '/images/silica-powder.png',
+        image: '/images/silica-powder.webp',
         applications: [
             { title: 'Adhesives & Tile Compounds', description: 'Functional filler for tile adhesives, wall putty and construction compounds.' },
             { title: 'Metal Polishing Compounds', description: 'Fine, high-whiteness powder used in polishing compounds and luster bars.' },
@@ -262,7 +262,7 @@ export const products: ProductItem[] = [
         shortDescription: 'Silica-based polishing bar for buffing and shining metals.',
         answerSnippet: 'A metal polishing compound (luster bar) is a solid buffing bar used on polishing wheels to shine metals such as stainless steel, brass and aluminium. Shiv Mines and Minerals makes it from high-whiteness, low-iron silica powder for a clean, consistent finish.',
         description: 'Shiv Mines and Minerals supplies metal polishing compound in luster (lustre) bar form, made from our high-whiteness, low-iron silica powder. Applied on buffing wheels, it cleans and brings a bright shine to stainless steel, brass, aluminium and utensils. Because we control the silica base, the abrasive is consistent from batch to batch.',
-        image: '/images/metal-polishing-compound.png',
+        image: '/images/metal-polishing-compound.webp',
         applications: [
             { title: 'Stainless Steel & Utensils', description: 'Buffing and shining stainless steel sheets, utensils and hardware.' },
             { title: 'Brass & Aluminium', description: 'Bringing a bright finish to brass and aluminium components.' },
@@ -293,7 +293,7 @@ export const products: ProductItem[] = [
         shortDescription: 'Silica-based adhesive / tile-fixing compound for wall and floor tiles.',
         answerSnippet: 'An adhesive and tile compound is a cement-and-silica based mix used to fix wall and floor tiles, stone and cladding with a strong, durable bond. Shiv Mines and Minerals makes it with high-whiteness, low-iron silica powder for consistency and a clean finish.',
         description: 'Shiv Mines and Minerals supplies adhesive and tile compound built on our high-whiteness silica powder. It is used to fix wall and floor tiles, stone and cladding, giving a strong bond with good workability. Controlling the silica filler keeps the compound consistent batch to batch.',
-        image: '/images/adhesive-tile-compound.png',
+        image: '/images/adhesive-tile-compound.webp',
         applications: [
             { title: 'Wall & Floor Tiling', description: 'Fixing ceramic and vitrified wall and floor tiles.' },
             { title: 'Stone & Cladding', description: 'Bonding stone and cladding to prepared surfaces.' },
