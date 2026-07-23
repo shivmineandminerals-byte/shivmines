@@ -62,6 +62,7 @@ const Footer = () => {
                             {[
                                 { href: "/about", label: "About Our Silica Mine" },
                                 { href: "/silica-sand-supplier-india", label: "Silica Sand Supplier in India" },
+                                { href: "/silica-sand-exporter-india", label: "Silica Sand Exporter" },
                                 { href: "/products", label: "Silica Sand Products" },
                                 { href: "/industries", label: "Silica Sand by Industry" },
                                 { href: "/quality", label: "Quality & Lab Analysis" },

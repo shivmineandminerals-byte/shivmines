@@ -257,10 +257,14 @@ export default function Contact() {
                                         <label htmlFor="contact-product" className="block text-sm font-semibold text-slate-900 mb-2">Product Interest</label>
                                         <select id="contact-product" name="product" value={formData.product} onChange={handleChange} className="input-field">
                                             <option value="">Select product</option>
-                                            <option value="construction">Construction Grade Silica</option>
-                                            <option value="industrial">Industrial Grade Silica</option>
-                                            <option value="foundry">Foundry Grade Silica</option>
-                                            <option value="glass">Glass Grade Silica</option>
+                                            <option value="construction">Construction Grade Silica Sand</option>
+                                            <option value="industrial">Industrial Grade Silica Sand</option>
+                                            <option value="glass">Glass Grade Silica Sand</option>
+                                            <option value="foundry">Foundry Grade Silica Sand</option>
+                                            <option value="frac">Frac Sand (Oil &amp; Gas)</option>
+                                            <option value="silica-powder">Silica Powder (100/200 mesh)</option>
+                                            <option value="metal-polishing">Metal Polishing Compound (Luster Bar)</option>
+                                            <option value="adhesive-tile">Adhesive &amp; Tile Compound</option>
                                             <option value="custom">Custom Specification</option>
                                         </select>
                                     </div>

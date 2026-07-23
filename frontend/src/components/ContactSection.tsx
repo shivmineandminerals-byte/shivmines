@@ -241,9 +241,12 @@ const ContactSection = () => {
                                         <option value="">Select silica product</option>
                                         <option value="construction">Construction Grade Silica Sand</option>
                                         <option value="industrial">Industrial Grade Silica Sand</option>
-                                        <option value="foundry">Foundry Grade Silica Sand</option>
                                         <option value="glass">Glass Grade Silica Sand</option>
+                                        <option value="foundry">Foundry Grade Silica Sand</option>
                                         <option value="frac">Frac Sand (Oil & Gas)</option>
+                                        <option value="silica-powder">Silica Powder (100/200 mesh)</option>
+                                        <option value="metal-polishing">Metal Polishing Compound (Luster Bar)</option>
+                                        <option value="adhesive-tile">Adhesive & Tile Compound</option>
                                         <option value="custom">Custom Specification</option>
                                     </select>
                                 </div>

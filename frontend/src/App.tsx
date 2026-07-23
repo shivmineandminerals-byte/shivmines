@@ -14,6 +14,7 @@ import Blog from "@/pages/Blog";
 import BlogDetail from "@/pages/BlogDetail";
 import Quality from "@/pages/Quality";
 import SupplierIndia from "@/pages/SupplierIndia";
+import ExporterIndia from "@/pages/ExporterIndia";
 import SiteMapPage from "@/pages/SiteMapPage";
 import NotFound from "@/pages/NotFound";
 import { products } from "@/data/products";
@@ -37,6 +38,7 @@ export const routes: RouteRecord[] = [
       { path: "contact", Component: Contact },
       { path: "quality", Component: Quality },
       { path: "silica-sand-supplier-india", Component: SupplierIndia },
+      { path: "silica-sand-exporter-india", Component: ExporterIndia },
       { path: "sitemap-page", Component: SiteMapPage },
       { path: "guides", Component: Guides },
       {

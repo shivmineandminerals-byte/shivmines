@@ -227,6 +227,56 @@ export const guides: Guide[] = [
         ],
         relatedProducts: ['glass-sand', 'construction-sand', 'foundry-sand'],
     },
+    {
+        slug: 'silica-sand-mines-in-rajasthan-india',
+        title: 'Silica Sand Mines in Rajasthan & India: Locations, Districts and Sources',
+        seoTitle: 'Silica Sand Mines in Rajasthan & India — Locations & Sources | Shiv Mines',
+        seoDescription: 'Where are silica sand mines in India and Rajasthan? Major states and Rajasthan districts (Karauli, Bundi, Bharatpur, Sawai Madhopur) that produce silica sand, and how to source it.',
+        intro: 'Silica sand is mined in several Indian states — Rajasthan, Gujarat, Tamil Nadu, Odisha and Andhra Pradesh. Rajasthan is one of the most important sources, with silica sand mines in districts such as Karauli, Bundi, Bharatpur and Sawai Madhopur. Shiv Mines and Minerals operates its own silica sand mine in Karauli, Rajasthan.',
+        updated: '2026-07-23',
+        readingTime: '6 min read',
+        sections: [
+            {
+                heading: 'Where are silica sand mines in India?',
+                paragraphs: ['India has silica sand deposits across several states. The main silica-sand-producing states are:'],
+                bullets: [
+                    'Rajasthan — one of the largest and highest-purity sources',
+                    'Gujarat',
+                    'Tamil Nadu',
+                    'Odisha',
+                    'Andhra Pradesh and Haryana',
+                ],
+            },
+            {
+                heading: 'Silica sand mines in Rajasthan',
+                paragraphs: [
+                    'Rajasthan holds some of India\'s purest silica sand deposits. Silica sand is mined in districts such as Karauli, Bundi, Bharatpur, Sawai Madhopur, Jaipur and Tonk.',
+                    'Shiv Mines and Minerals operates a silica sand mine in Karauli, Rajasthan (Mining Lease M.L. No. 34/2006) and has supplied silica sand since 2006. We mine, wash and grade the sand on site for construction, industrial, glass, foundry, frac and custom grades, plus silica powder.',
+                ],
+            },
+            {
+                heading: 'Why Rajasthan silica sand is in demand',
+                paragraphs: ['Rajasthan silica is valued for high SiO₂ purity, low iron and consistent quality — which is why it is used for glass, foundry and industrial applications and exported. Independent lab analysis of our silica shows SiO₂ around 96–97% with low iron and high whiteness (see our Quality page).'],
+            },
+            {
+                heading: 'Is "silicon" the same as "silica"?',
+                paragraphs: [
+                    'People often search for "silicon mines" when they mean silica sand mines — the two are related but not identical. Silica is silicon dioxide (SiO₂), the mineral that makes up the sand we mine. Silicon (Si) is the pure element, refined from silica. So "silicon sand" or "silicon mines" almost always refers to silica sand mining.',
+                ],
+            },
+            {
+                heading: 'How to source silica sand from Rajasthan',
+                paragraphs: ['To buy silica sand from a Rajasthan mine, share your grade (construction, industrial, glass, foundry, frac or a custom spec), target purity and particle size, quantity and delivery location. A producer that mines and grades its own sand — like Shiv Mines and Minerals in Karauli — can supply consistently and grade to your specification.'],
+            },
+        ],
+        faqs: [
+            { question: 'Where are silica sand mines in India?', answer: 'Silica sand is mined mainly in Rajasthan, Gujarat, Tamil Nadu, Odisha and Andhra Pradesh. Rajasthan is one of the largest, highest-purity sources.' },
+            { question: 'Which districts in Rajasthan have silica sand mines?', answer: 'Silica sand is mined in Rajasthan districts such as Karauli, Bundi, Bharatpur, Sawai Madhopur, Jaipur and Tonk. Shiv Mines and Minerals operates in Karauli.' },
+            { question: 'Is silicon the same as silica sand?', answer: 'Not exactly. Silica is silicon dioxide (SiO₂) — the sand. Silicon (Si) is the pure element refined from silica. "Silicon mines" usually means silica sand mines.' },
+            { question: 'Who supplies silica sand from Rajasthan?', answer: 'Shiv Mines and Minerals mines and supplies silica sand from Karauli, Rajasthan, for domestic customers across India and for export.' },
+        ],
+        relatedProducts: ['glass-sand', 'industrial-sand', 'silica-powder'],
+    },
 ];
 
 export const getGuide = (slug: string): Guide | undefined => guides.find((g) => g.slug === slug);

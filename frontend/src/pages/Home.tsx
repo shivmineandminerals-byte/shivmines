@@ -40,10 +40,10 @@ export default function Home() {
     return (
         <div className="min-h-screen bg-background">
             <SEOHead
-                title="Shiv Mines & Minerals | Silica Sand Supplier & Mines in Karauli, Rajasthan"
-                description="Silica sand mining company in Karauli, Rajasthan since 2006. Construction, industrial (99%+ SiO₂), glass (99.5%+ SiO₂), foundry, frac & custom-grade silica sand for domestic supply and export. Request a quote."
+                title="Silica Sand & Silica Mines in Rajasthan, India | Shiv Mines & Minerals"
+                description="Silica sand supplier & silica mines in Rajasthan, India since 2006. Lab-tested construction, industrial (99%+ SiO₂), glass (99.5%+ SiO₂), foundry & frac silica sand and silica powder. Karauli mine — get a bulk quote."
                 canonical="/"
-                keywords="silica sand supplier rajasthan, silica mines karauli, silica sand mining company, construction sand, industrial silica sand, glass grade silica sand, foundry sand, frac sand, shiv mines and minerals"
+                keywords="silica mines in india, silica sand mines in rajasthan, silica mines, silica mines in rajasthan, silica sand mines in india, silica sand supplier rajasthan, silica mining companies india, silica sand supplier, silica powder, shiv mines and minerals"
                 schemaMarkup={[buildFaqSchema(homeFaqs)]}
             />
             <Header />

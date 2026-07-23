@@ -56,10 +56,17 @@ export default function SupplierIndia() {
 
             <section className="py-12 md:py-16">
                 <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
-                    <p className="text-lg md:text-xl text-slate-800 font-medium leading-relaxed max-w-3xl mb-10 border-l-4 border-accent pl-5">
+                    <p className="text-lg md:text-xl text-slate-800 font-medium leading-relaxed max-w-3xl mb-6 border-l-4 border-accent pl-5">
                         Shiv Mines and Minerals is a silica sand supplier, manufacturer and exporter in India, operating its
                         own mine in Karauli, Rajasthan since 2006. We supply construction, industrial, glass, foundry, frac,
                         custom-grade silica sand and silica powder for customers across India and for export.
+                    </p>
+                    <p className="text-slate-600 max-w-3xl mb-10">
+                        New to sourcing? See our guide to{' '}
+                        <Link to="/guides/silica-sand-mines-in-rajasthan-india" className="text-accent font-semibold hover:underline">
+                            silica sand mines in Rajasthan &amp; India
+                        </Link>{' '}
+                        for locations, districts and how to buy.
                     </p>
 
                     <div className="grid lg:grid-cols-2 gap-12">
