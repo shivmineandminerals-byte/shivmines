@@ -1,13 +1,12 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown, Phone } from "lucide-react";
+import { products } from "@/data/products";
 
-const productLinks = [
-    { name: "Construction Grade Silica", href: "/products/construction-sand" },
-    { name: "Industrial Grade Silica", href: "/products/industrial-sand" },
-    { name: "Foundry Grade Silica", href: "/products/foundry-sand" },
-    { name: "Glass Grade Silica", href: "/products/glass-sand" },
-];
+const productLinks = products.map((p) => ({
+    name: p.name,
+    href: `/products/${p.slug}`,
+}));
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -57,6 +56,8 @@ const Header = () => {
         { name: "HOME", href: "/", ariaLabel: "Go to home page" },
         { name: "ABOUT US", href: "/about", ariaLabel: "Learn about Shiv Mines and Minerals" },
         { name: "PRODUCTS", href: "/products", ariaLabel: "View our silica sand products", hasDropdown: true },
+        { name: "INDUSTRIES", href: "/industries", ariaLabel: "Silica sand by industry" },
+        { name: "QUALITY", href: "/quality", ariaLabel: "Silica sand lab analysis and quality" },
         { name: "CONTACT US", href: "/contact", ariaLabel: "Contact our silica mine team" },
     ];
 
@@ -121,7 +122,7 @@ const Header = () => {
                                 {isProductsOpen && (
                                     <div className="absolute top-full left-0 pt-2 z-50">
                                         <div
-                                            className="w-72 bg-white shadow-xl border border-gray-100 py-2"
+                                            className="w-80 bg-white shadow-xl border border-gray-100 py-2 max-h-[80vh] overflow-y-auto"
                                             role="menu"
                                         >
                                             {productLinks.map((product) => (
@@ -236,6 +237,22 @@ const Header = () => {
                                 </div>
                             )}
                         </div>
+
+                        <Link
+                            to="/industries"
+                            onClick={() => setIsOpen(false)}
+                            className="block py-3 text-foreground font-semibold border-b border-border"
+                        >
+                            INDUSTRIES
+                        </Link>
+
+                        <Link
+                            to="/quality"
+                            onClick={() => setIsOpen(false)}
+                            className="block py-3 text-foreground font-semibold border-b border-border"
+                        >
+                            QUALITY
+                        </Link>
 
                         <Link
                             to="/contact"

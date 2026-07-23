@@ -5,183 +5,74 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import SEOHead from '@/components/SEOHead';
+import FAQSection, { buildFaqSchema } from '@/components/FAQSection';
+import Breadcrumbs, { buildBreadcrumbSchema, type Crumb } from '@/components/Breadcrumbs';
+import { products, getProduct } from '@/data/products';
+import { getIndustriesForProduct } from '@/data/industries';
 
 const smoothTransition: Transition = { duration: 0.4, ease: [0.4, 0, 0.2, 1] };
 
 const fadeInLeft = {
     initial: { opacity: 0, x: -20 },
     whileInView: { opacity: 1, x: 0 },
-    viewport: { once: true, margin: "-100px" },
-    transition: smoothTransition
+    viewport: { once: true, margin: '-100px' },
+    transition: smoothTransition,
 };
 
 const fadeInRight = {
     initial: { opacity: 0, x: 20 },
     whileInView: { opacity: 1, x: 0 },
-    viewport: { once: true, margin: "-100px" },
-    transition: smoothTransition
-};
-
-const productData: Record<string, { name: string; description: string; image: string; seoTitle: string; seoDescription: string; applications: { title: string; description: string }[]; features: { title: string; description: string }[] }> = {
-    'construction-sand': {
-        name: 'Construction Sand',
-        seoTitle: 'Construction Grade Silica Sand | Premium Quality | Shiv Minerals',
-        seoDescription: 'Premium construction grade silica sand from Shiv Mines and Minerals. Washed, clean, and consistently graded for concrete, mortar, plastering, and asphalt. ASTM specification compliant.',
-        description: 'Shiv Mines and Minerals proudly provides Construction Sand, the finest silica sand that is well known for its unparalleled quality, strength, and durability. The construction sand is mined carefully from selected locations and then washed on site to rid itself of impurities so that it is utterly free from clay and other adulterants. This, in turn, is very important to get results in construction jobs wherein stability and longevity are so imperative. With its even granular size and dense structure, the sand is ideal for all types of construction purposes-from bricklaying and plastering to the manufacture of concrete.',
-        image: '/images/construction-sand.png',
-        applications: [
-            { title: 'Masonry Works', description: 'Solid base for bricklaying and stonework, with excellent bonding properties for mortar.' },
-            { title: 'Plastering Work', description: 'Finer, washed texture helps gain finer, even quality in wall and ceiling plastering.' },
-            { title: 'Concrete Work', description: 'Key constituent in concrete mixes to attain required strength and durability.' },
-        ],
-        features: [
-            { title: 'Washed and Clean', description: 'Free from clay and other impurities, ensuring perfect workability.' },
-            { title: 'Strength and Durability', description: 'Gives strength and durability to masonry, plaster, and concrete works.' },
-            { title: 'Consistent Grading', description: 'Uniform particle size distribution ensures reliable performance.' },
-        ],
-    },
-    'industrial-sand': {
-        name: 'Industrial Sand',
-        seoTitle: 'Industrial Grade Silica Sand | 99%+ Purity | Shiv Minerals',
-        seoDescription: 'High-purity industrial silica sand with 99%+ SiO₂ content. Ideal for water filtration, abrasive blasting, and chemical processing. Precisely graded by Shiv Mines and Minerals.',
-        description: 'Shiv Mines and Minerals offers premium Industrial Sand, specially processed for demanding industrial applications requiring high purity and precise specifications. Our industrial-grade silica sand undergoes rigorous quality control to ensure 99%+ silica content with minimal impurities. The sand is carefully graded to meet the exacting standards of water treatment, abrasive blasting, and chemical manufacturing industries.',
-        image: '/images/product-industrial-sand.jpg',
-        applications: [
-            { title: 'Water Filtration', description: 'Ideal for water treatment plants and filtration systems.' },
-            { title: 'Abrasive Blasting', description: 'Perfect for sandblasting operations requiring consistent particle size.' },
-            { title: 'Chemical Processing', description: 'High-purity silica suitable for chemical manufacturing processes.' },
-        ],
-        features: [
-            { title: 'High Purity', description: '99%+ silica content with minimal iron oxide and other impurities.' },
-            { title: 'Precise Grading', description: 'Carefully controlled particle size distribution.' },
-            { title: 'Thermal Stability', description: 'Excellent heat resistance for high-temperature applications.' },
-        ],
-    },
-    'foundry-sand': {
-        name: 'Foundry Sand',
-        seoTitle: 'Foundry Grade Silica Sand | Metal Casting Sand | Shiv Minerals',
-        seoDescription: 'Superior foundry grade silica sand for iron, steel, and aluminum casting. Optimal AFS grain fineness, high refractoriness (1700°C+), and excellent permeability. From Shiv Mines and Minerals.',
-        description: 'Shiv Mines and Minerals supplies superior Foundry Sand engineered specifically for metal casting applications. Our foundry-grade silica sand features optimal grain shape, high refractoriness, and excellent permeability - essential properties for producing quality castings. The sand is processed to achieve consistent AFS grain fineness numbers and low acid demand values.',
-        image: '/images/foundry-sand.png',
-        applications: [
-            { title: 'Iron & Steel Casting', description: 'High refractoriness withstands molten metal temperatures.' },
-            { title: 'Aluminum Casting', description: 'Excellent surface finish for non-ferrous metal casting.' },
-            { title: 'Core Making', description: 'Optimal permeability for creating complex internal cavities.' },
-        ],
-        features: [
-            { title: 'High Refractoriness', description: 'Withstands temperatures above 1700°C without degradation.' },
-            { title: 'Optimal Grain Shape', description: 'Sub-angular to rounded grains provide excellent flowability.' },
-            { title: 'Excellent Permeability', description: 'Allows gases to escape during casting.' },
-        ],
-    },
-    'glass-sand': {
-        name: 'Glass Sand',
-        seoTitle: 'Glass Grade Silica Sand | Ultra-Pure 99.5% SiO₂ | Shiv Minerals',
-        seoDescription: 'Ultra-pure glass grade silica sand with 99.5%+ SiO₂ and Fe₂O₃ below 0.02%. Perfect for container glass, flat glass, and optical lenses. Supplied by Shiv Mines and Minerals.',
-        description: 'Shiv Mines and Minerals produces ultra-pure Glass Sand meeting the stringent specifications required by glass manufacturers. Our glass-grade silica features exceptionally low iron content (below 0.02% Fe2O3) ensuring crystal-clear glass production. The sand undergoes specialized processing including washing, magnetic separation, and precise sizing.',
-        image: '/images/product-glass-sand.jpg',
-        applications: [
-            { title: 'Container Glass', description: 'Premium quality for manufacturing bottles and jars.' },
-            { title: 'Flat Glass', description: 'Ultra-pure silica for windows, mirrors, and architectural glass.' },
-            { title: 'Specialty Glass', description: 'High-purity sand for optical glass and solar panels.' },
-        ],
-        features: [
-            { title: 'Ultra-Low Iron', description: 'Fe2O3 content below 0.02% for crystal-clear glass.' },
-            { title: 'High Silica Purity', description: '99.5%+ SiO2 content meeting international standards.' },
-            { title: 'Controlled Particle Size', description: 'Precise sizing for optimal melting and homogeneity.' },
-        ],
-    },
-    'frac-sand': {
-        name: 'Frac Sand (Oil & Gas)',
-        seoTitle: 'Premium Frac Sand for Oil & Gas | High Crush Strength | Shiv Minerals',
-        seoDescription: 'High-quality monocrystalline silica frac sand designed for hydraulic fracturing. Superior crush strength, high sphericity, and optimal conductivity. Supplied by Shiv Minerals.',
-        description: 'Shiv Mines and Minerals provides premium Frac Sand specifically engineered for the oil and gas industry\'s hydraulic fracturing operations. Our monocrystalline silica sand is characterized by its exceptional crush strength, high sphericity, and roundness. These critical properties ensure maximum conductivity and sustained production rates in complex reservoir conditions.',
-        image: '/images/1.png', // Using an existing quarry image as a placeholder
-        applications: [
-            { title: 'Hydraulic Fracturing', description: 'Keeps fractures open to allow efficient hydrocarbon extraction.' },
-            { title: 'Well Stimulation', description: 'Enhances flow rates and maximizes well productivity.' },
-            { title: 'Deep Well Operations', description: 'Maintains structural integrity under extreme downhole pressures.' },
-        ],
-        features: [
-            { title: 'High Crush Strength', description: 'Withstands closure stresses of deep reservoir formations.' },
-            { title: 'High Sphericity & Roundness', description: 'Optimizes permeability and fluid flow characteristics.' },
-            { title: 'Superior Conductivity', description: 'Maximizes long-term well production potential.' },
-        ],
-    },
-    'custom-specification': {
-        name: 'Custom Specification Sand',
-        seoTitle: 'Custom Silica Sand Specifications | Tailored Mining | Shiv Minerals',
-        seoDescription: 'Need specific silica sand grades? Shiv Mines and Minerals offers custom mining, processing, and sizing to meet your exact industrial requirements.',
-        description: 'At Shiv Mines and Minerals, we understand that certain specialized applications require precise silica sand specifications that fall outside standard industry grades. We offer custom mining, washing, and sizing services to deliver silica sand engineered exactly to your chemical and physical requirements. Our advanced processing capabilities allow us to adjust SiO2 purity, iron content, and particle size distribution (PSD) to your precise needs.',
-        image: '/images/3.png', // Using the stockpiles image
-        applications: [
-            { title: 'Specialty Manufacturing', description: 'Tailored silica for unique industrial or chemical processes.' },
-            { title: 'Advanced Ceramics', description: 'Custom-graded sand for specialized ceramic production.' },
-            { title: 'Specific Filtration Needs', description: 'Custom sized media for specialized water treatment systems.' },
-        ],
-        features: [
-            { title: 'Custom PSD', description: 'Precise particle size distribution to your exact sieve requirements.' },
-            { title: 'Controlled Chemistry', description: 'Customized purity levels targeting specific SiO2 and Fe2O3 limits.' },
-            { title: 'Scalable Production', description: 'Capable of fulfilling both specialized small batches and large volume orders.' },
-        ],
-    },
+    viewport: { once: true, margin: '-100px' },
+    transition: smoothTransition,
 };
 
 export default function ProductDetail() {
     const { slug } = useParams<{ slug: string }>();
 
-    if (!slug || !productData[slug]) {
+    if (!slug || !getProduct(slug)) {
         return <Navigate to="/products" replace />;
     }
 
-    const product = productData[slug];
+    const product = getProduct(slug)!;
 
+    // Product schema — NO fake aggregateRating, NO fake price:0.
+    // B2B quote model: describe availability and manufacturer, let buyers request a quote.
     const productSchema = {
-        "@context": "https://schema.org",
-        "@type": "Product",
-        "name": product.name,
-        "description": product.description,
-        "image": `https://shivmines.in${product.image}`,
-        "brand": {
-            "@type": "Brand",
-            "name": "Shiv Mines and Minerals"
+        '@context': 'https://schema.org',
+        '@type': 'Product',
+        name: product.name,
+        description: product.answerSnippet,
+        image: `https://shivmines.in${product.image}`,
+        category: 'Silica Sand',
+        brand: { '@type': 'Brand', name: 'Shiv Mines and Minerals' },
+        manufacturer: {
+            '@type': 'Organization',
+            name: 'Shiv Mines and Minerals',
+            url: 'https://shivmines.in',
         },
-        "manufacturer": {
-            "@type": "Organization",
-            "name": "Shiv Mines and Minerals",
-            "url": "https://shivmines.in"
+        // No numeric price (quote-based). AvailableAtOrFrom + a quote action instead of a fake Offer price.
+        offers: {
+            '@type': 'Offer',
+            url: `https://shivmines.in/products/${slug}`,
+            availability: 'https://schema.org/InStock',
+            priceCurrency: 'INR',
+            priceSpecification: {
+                '@type': 'PriceSpecification',
+                priceCurrency: 'INR',
+                valueAddedTaxIncluded: false,
+            },
+            seller: { '@type': 'Organization', name: 'Shiv Mines and Minerals' },
         },
-        "category": "Silica Sand",
-        "offers": {
-            "@type": "Offer",
-            "url": `https://shivmines.in/products/${slug}`,
-            "priceCurrency": "INR",
-            "price": "0",
-            "priceValidUntil": "2027-12-31",
-            "availability": "https://schema.org/InStock",
-            "seller": {
-                "@type": "Organization",
-                "name": "Shiv Mines and Minerals"
-            }
-        },
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.8",
-            "reviewCount": "47",
-            "bestRating": "5",
-            "worstRating": "1"
-        }
     };
 
-    const breadcrumbSchema = {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://shivmines.in/" },
-            { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://shivmines.in/products" },
-            { "@type": "ListItem", "position": 3, "name": product.name, "item": `https://shivmines.in/products/${slug}` }
-        ]
-    };
+    const crumbs: Crumb[] = [
+        { name: 'Home', href: '/' },
+        { name: 'Products', href: '/products' },
+        { name: product.name, href: `/products/${slug}` },
+    ];
+
+    const relatedProducts = products.filter((p) => p.slug !== slug).slice(0, 4);
+    const usedInIndustries = getIndustriesForProduct(slug);
 
     return (
         <div className="min-h-screen bg-white">
@@ -190,38 +81,59 @@ export default function ProductDetail() {
                 description={product.seoDescription}
                 canonical={`/products/${slug}`}
                 ogImage={`https://shivmines.in${product.image}`}
-                keywords={`${product.name}, ${product.name} Rajasthan, ${product.name} supplier India, silica sand, buy ${product.name}, ${product.name} price, Shiv Minerals`}
-                schemaMarkup={[productSchema, breadcrumbSchema]}
+                keywords={`${product.name}, ${product.name} supplier India, ${product.name} Rajasthan, silica sand, Shiv Mines and Minerals`}
+                schemaMarkup={[productSchema, buildBreadcrumbSchema(crumbs), buildFaqSchema(product.faqs)]}
             />
             <Header />
 
             <section className="relative h-[300px] md:h-[400px] flex items-center justify-center">
                 <div className="absolute inset-0">
-                    <img src="/images/hero-quarry.jpg" alt={product.name} className="w-full h-full object-cover" />
+                    <img src="/images/hero-quarry.webp" alt={`${product.name} from Shiv Mines and Minerals`} className="w-full h-full object-cover" width={1600} height={400} />
                     <div className="absolute inset-0 bg-black/50" />
                 </div>
                 <motion.h1
                     initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={smoothTransition}
-                    className="relative z-10 text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center"
+                    className="relative z-10 text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center px-4"
                 >
                     {product.name}
                 </motion.h1>
             </section>
 
-            <section className="py-16 md:py-24">
+            <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 pt-6">
+                <Breadcrumbs items={crumbs} />
+            </div>
+
+            <section className="py-12 md:py-20">
                 <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
+                    {/* Front-loaded answer snippet for AI Overviews / featured snippets */}
+                    <p className="text-lg md:text-xl text-slate-800 font-medium leading-relaxed max-w-3xl mb-12 border-l-4 border-accent pl-5">
+                        {product.answerSnippet}
+                    </p>
+
                     <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
                         <motion.div {...fadeInLeft} className="lg:sticky lg:top-32">
                             <div className="rounded-lg overflow-hidden shadow-lg">
-                                <img src={product.image} alt={product.name} className="w-full h-auto object-cover" loading="lazy" />
+                                <img src={product.image} alt={`${product.name} — silica sand from Karauli, Rajasthan`} className="w-full h-auto object-cover" loading="lazy" width={800} height={600} />
                             </div>
                         </motion.div>
 
                         <motion.div {...fadeInRight}>
-                            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">{product.name}</h2>
+                            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">About {product.name}</h2>
                             <p className="text-slate-600 leading-relaxed mb-10">{product.description}</p>
+
+                            <div className="mb-10">
+                                <h3 className="text-xl font-bold text-slate-900 mb-4">Typical Specifications</h3>
+                                <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
+                                    {product.specs.map((s, i) => (
+                                        <div key={i} className="flex justify-between border-b border-stone-100 py-2">
+                                            <dt className="text-slate-500">{s.label}</dt>
+                                            <dd className="font-semibold text-slate-900 text-right">{s.value}</dd>
+                                        </div>
+                                    ))}
+                                </dl>
+                            </div>
 
                             <div className="mb-10">
                                 <h3 className="text-xl font-bold text-slate-900 mb-4">Applications</h3>
@@ -255,14 +167,39 @@ export default function ProductDetail() {
                 </div>
             </section>
 
-            <section className="py-16 bg-stone-50">
+            {/* Cross-link into the industry silo (completes product ↔ industry loop) */}
+            {usedInIndustries.length > 0 && (
+                <section className="py-12 border-t border-stone-100">
+                    <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
+                        <h2 className="text-2xl font-bold text-slate-900 mb-6">Used in these industries</h2>
+                        <div className="flex flex-wrap gap-3">
+                            {usedInIndustries.map((ind) => (
+                                <Link
+                                    key={ind.slug}
+                                    to={`/industries/${ind.slug}`}
+                                    className="inline-flex items-center gap-1 rounded-full border border-stone-300 px-4 py-2 text-sm font-medium text-slate-700 hover:border-accent hover:text-accent transition-colors"
+                                >
+                                    {ind.name}
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            )}
+
+            {/* Visible FAQ — matches the FAQPage schema above */}
+            <div className="bg-stone-50">
+                <FAQSection faqs={product.faqs} heading={`${product.name} — FAQs`} />
+            </div>
+
+            <section className="py-16">
                 <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
                     <h2 className="text-2xl md:text-3xl font-bold text-slate-900 text-center mb-12">Explore Other Products</h2>
                     <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {Object.entries(productData).filter(([key]) => key !== slug).map(([key, prod]) => (
-                            <Link key={key} to={`/products/${key}`} className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+                        {relatedProducts.map((prod) => (
+                            <Link key={prod.slug} to={`/products/${prod.slug}`} className="group bg-white rounded-lg overflow-hidden shadow-sm border border-stone-200 hover:shadow-lg transition-shadow">
                                 <div className="h-48 overflow-hidden">
-                                    <img src={prod.image} alt={prod.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                                    <img src={prod.image} alt={prod.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" width={400} height={300} />
                                 </div>
                                 <div className="p-4">
                                     <h3 className="font-semibold text-slate-900 group-hover:text-copper transition-colors">{prod.name}</h3>

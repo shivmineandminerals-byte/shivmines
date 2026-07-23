@@ -5,6 +5,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import SEOHead from '@/components/SEOHead';
+import Breadcrumbs, { buildBreadcrumbSchema, type Crumb } from '@/components/Breadcrumbs';
 
 const smoothTransition: Transition = { duration: 0.4, ease: [0.4, 0, 0.2, 1] };
 
@@ -28,40 +29,71 @@ const fadeInRight = {
     transition: smoothTransition
 };
 
-const breadcrumbSchema = {
+const crumbs: Crumb[] = [
+    { name: 'Home', href: '/' },
+    { name: 'About Us', href: '/about' },
+];
+
+const aboutSchema = {
     "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://shivmines.in/" },
-        { "@type": "ListItem", "position": 2, "name": "About Us", "item": "https://shivmines.in/about" }
-    ]
+    "@type": "AboutPage",
+    "name": "About Shiv Mines and Minerals",
+    "url": "https://shivmines.in/about",
+    "about": {
+        "@type": "Organization",
+        "name": "Shiv Mines and Minerals",
+        "foundingDate": "2006",
+        "url": "https://shivmines.in",
+        "logo": "https://shivmines.in/logo.png",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Mining Lease M.L. No. 34/2006, Near Village Raghuvanshi",
+            "addressLocality": "Karauli",
+            "addressRegion": "Rajasthan",
+            "postalCode": "322241",
+            "addressCountry": "IN"
+        }
+    }
 };
 
 export default function About() {
     return (
         <div className="min-h-screen bg-white">
             <SEOHead
-                title="About Shiv Mines & Minerals | Leading Silica Mines in Rajasthan Since 2006"
-                description="Shiv Mines and Minerals — Rajasthan's leading silica mines since 2006. Our silica mines in Karauli, Rajasthan produce 1,000 tonnes/day of premium construction, industrial, foundry & glass grade silica sand. Trusted silica mines serving 45+ countries."
+                title="About Shiv Mines & Minerals | Silica Sand Mining in Karauli, Rajasthan Since 2006"
+                description="Shiv Mines and Minerals has mined and supplied silica sand from Karauli, Rajasthan since 2006 (Mining Lease M.L. No. 34/2006). Learn about our operation, grades and quality process."
                 canonical="/about"
-                keywords="silica mines in rajasthan, silica mines rajasthan, about shiv minerals, silica mining company rajasthan, silica mines karauli, silica sand company rajasthan, mining operations rajasthan, rajasthan silica mines, silica sand mines rajasthan"
-                schemaMarkup={[breadcrumbSchema]}
+                keywords="about shiv mines and minerals, silica sand mining company karauli, silica mines rajasthan, silica sand supplier history"
+                schemaMarkup={[buildBreadcrumbSchema(crumbs), aboutSchema]}
             />
             <Header />
 
             {/* Hero */}
             <section className="relative h-[300px] md:h-[400px] flex items-center justify-center">
                 <div className="absolute inset-0">
-                    <img src="/images/hero-quarry.jpg" alt="About Shiv Mines and Minerals" className="w-full h-full object-cover" />
+                    <img src="/images/hero-quarry.webp" alt="Silica mining operation of Shiv Mines and Minerals in Karauli, Rajasthan" className="w-full h-full object-cover" width={1600} height={400} />
                     <div className="absolute inset-0 bg-black/50" />
                 </div>
                 <motion.h1
                     {...fadeInUp}
-                    className="relative z-10 text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center"
+                    className="relative z-10 text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center px-4"
                 >
-                    About Us — Silica Mines in Rajasthan
+                    About Shiv Mines and Minerals
                 </motion.h1>
             </section>
+
+            <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 pt-6">
+                <Breadcrumbs items={crumbs} />
+            </div>
+
+            {/* Answer-first intro */}
+            <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 pt-8">
+                <p className="text-lg md:text-xl text-slate-800 font-medium leading-relaxed max-w-3xl border-l-4 border-accent pl-5">
+                    Shiv Mines and Minerals is a silica sand mining company based in Karauli, Rajasthan, India, operating
+                    since 2006 under Mining Lease M.L. No. 34/2006. We mine, wash, grade and supply silica sand for
+                    construction, industrial, glass, foundry and oil &amp; gas applications, for domestic supply and export.
+                </p>
+            </div>
 
             {/* Content */}
             <section className="py-16 md:py-24">
@@ -80,7 +112,7 @@ export default function About() {
                             <p className="text-slate-600 leading-relaxed mb-6">
                                 Our silica mines in Rajasthan feature vertically integrated operations spanning from extraction at our premium
                                 silica quarry in Karauli to advanced multi-stage processing and global distribution. With a daily
-                                production capacity of 1,000 tonnes, our Rajasthan silica mines serve industries across 45+ countries.
+                                production capacity of 2,000 tonnes, our Rajasthan silica mines serve industries across 45+ countries.
                             </p>
                             <p className="text-slate-600 leading-relaxed">
                                 We are committed to sustainable mining practices, environmental stewardship, and delivering
@@ -91,14 +123,39 @@ export default function About() {
                         <motion.div {...fadeInRight} className="lg:sticky lg:top-32">
                             <div className="rounded-lg overflow-hidden shadow-lg">
                                 <img
-                                    src="/images/about-facility.jpg"
-                                    alt="Shiv Mines and Minerals facility"
+                                    src="/images/about-facility.webp"
+                                    alt="Silica sand processing facility at Shiv Mines and Minerals, Karauli"
                                     className="w-full h-auto object-cover"
                                     loading="lazy"
+                                    width={800}
+                                    height={600}
                                 />
                             </div>
                         </motion.div>
                     </div>
+                </div>
+            </section>
+
+            {/* Operation at a glance — grounded in real, verifiable details */}
+            <section className="py-12 md:py-16">
+                <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
+                    <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-8">Our operation at a glance</h2>
+                    <dl className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {[
+                            { label: 'Established', value: '2006' },
+                            { label: 'Location', value: 'Karauli, Rajasthan, India' },
+                            { label: 'Mining lease', value: 'M.L. No. 34/2006' },
+                            { label: 'Grades supplied', value: 'Construction, industrial, glass, foundry, frac, custom' },
+                        ].map((f) => (
+                            <div key={f.label} className="bg-stone-50 rounded-lg p-5 border border-stone-200">
+                                <dt className="text-xs uppercase tracking-wider text-slate-500 mb-1">{f.label}</dt>
+                                <dd className="font-semibold text-slate-900">{f.value}</dd>
+                            </div>
+                        ))}
+                    </dl>
+                    {/* TODO(owner): add real, verifiable trust signals here when available —
+                        ISO/quality certifications, lab test reports, export/IEC details, client
+                        industries and genuine testimonials. Do not add unverified badges. */}
                 </div>
             </section>
 
@@ -120,7 +177,7 @@ export default function About() {
                             },
                             {
                                 title: "Advanced Processing",
-                                description: "State-of-the-art processing technology ensures precise gradation, washing, and drying. Three facilities with 1,000 tonnes/day capacity."
+                                description: "State-of-the-art processing technology ensures precise gradation, washing, and drying. Three facilities with 2,000 tonnes/day capacity."
                             },
                             {
                                 title: "Global Reach",

@@ -61,9 +61,14 @@ const Footer = () => {
                         <ul className="space-y-3 text-sm">
                             {[
                                 { href: "/about", label: "About Our Silica Mine" },
+                                { href: "/silica-sand-supplier-india", label: "Silica Sand Supplier in India" },
                                 { href: "/products", label: "Silica Sand Products" },
-                                { href: "/#operations", label: "Mining Operations" },
+                                { href: "/industries", label: "Silica Sand by Industry" },
+                                { href: "/quality", label: "Quality & Lab Analysis" },
+                                { href: "/guides", label: "Silica Sand Guides" },
+                                { href: "/blog", label: "Blog" },
                                 { href: "/contact", label: "Contact Us" },
+                                { href: "/sitemap-page", label: "Sitemap" },
                             ].map((link) => (
                                 <li key={link.href}>
                                     <Link to={link.href} className="text-background/50 hover:text-accent transition-colors duration-200">

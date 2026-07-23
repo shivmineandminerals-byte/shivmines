@@ -1,54 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-
-const constructionSand = "/images/construction-sand.png";
-const industrialSand = "/images/product-industrial-sand.jpg";
-const foundrySand = "/images/foundry-sand.png";
-const glassSand = "/images/product-glass-sand.jpg";
-
-const products = [
-    {
-        id: "construction",
-        slug: "construction-sand",
-        image: constructionSand,
-        name: "Construction Grade Silica Sand",
-        specs: "SiO₂: 98.5% | Mesh: 20-40",
-        description: "Premium construction grade silica sand engineered for concrete, mortar, and asphalt applications. Consistently graded to meet ASTM specifications.",
-        altText: "Construction grade silica sand from Shiv Mines and Minerals mine for concrete and mortar applications",
-        applications: ["Concrete production", "Mortar mixing", "Asphalt paving", "Landscaping"],
-    },
-    {
-        id: "industrial",
-        slug: "industrial-sand",
-        image: industrialSand,
-        name: "Industrial Grade Silica Sand",
-        specs: "SiO₂: 99.2% | Mesh: 40-70",
-        description: "High-purity industrial silica sand ideal for water filtration, chemical processing, and abrasive blasting. Consistent particle size for optimal performance.",
-        altText: "Industrial grade high-purity silica sand from Shiv Mines and Minerals for filtration and chemical processing",
-        applications: ["Water filtration", "Chemical processing", "Abrasive blasting", "Pool filters"],
-    },
-    {
-        id: "foundry",
-        slug: "foundry-sand",
-        image: foundrySand,
-        name: "Foundry Grade Silica Sand",
-        specs: "SiO₂: 99.0% | AFS: 55-65",
-        description: "Superior thermal resistance foundry silica sand for ferrous and non-ferrous metal casting with optimal AFS grain fineness for excellent mold permeability.",
-        altText: "Foundry grade silica sand from Shiv Mines and Minerals with high thermal resistance for metal casting",
-        applications: ["Metal casting", "Mold making", "Core production", "Investment casting"],
-    },
-    {
-        id: "glass",
-        slug: "glass-sand",
-        image: glassSand,
-        name: "Glass Grade Silica Sand",
-        specs: "SiO₂: 99.5% | Fe₂O₃: <0.015%",
-        description: "Ultra-low iron content glass grade silica with 99.5% SiO₂ purity, perfect for optical glass, clear containers, and specialty glass manufacturing.",
-        altText: "Ultra-pure glass grade silica sand from Shiv Mines and Minerals with 99.5% SiO2 purity",
-        applications: ["Container glass", "Flat glass", "Specialty glass", "Optical lenses"],
-    },
-];
+import { products } from "@/data/products";
 
 const fadeIn = { hidden: { opacity: 0 }, visible: { opacity: 1 } };
 
@@ -72,104 +25,60 @@ const ProductsSection = () => {
                         </h2>
                         <p className="text-body-lg mt-4 max-w-2xl">
                             Our <strong className="text-foreground">silica mine</strong> produces a complete range of high-purity silica sand
-                            products, each engineered to meet specific industry requirements.
+                            products and powders, each engineered to meet specific industry requirements.
                         </p>
                     </motion.div>
-                    <a
-                        href="#contact"
+                    <Link
+                        to="/products"
                         className="btn-accent whitespace-nowrap"
-                        aria-label="Request technical specifications for silica sand products"
+                        aria-label="View all silica sand products"
                     >
-                        Request Specifications
+                        View All Products
                         <ArrowRight className="w-4 h-4" aria-hidden="true" />
-                    </a>
+                    </Link>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-6" role="list" aria-label="Silica sand product catalog">
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" role="list" aria-label="Silica sand product catalog">
                     {products.map((product, index) => (
                         <motion.article
-                            key={product.id}
+                            key={product.slug}
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, margin: "-50px" }}
-                            transition={{ duration: 0.4, delay: index * 0.08 }}
+                            transition={{ duration: 0.4, delay: (index % 3) * 0.08 }}
                             variants={fadeIn}
                             className="group bg-card overflow-hidden border border-border hover:border-accent/30 transition-colors duration-300 shadow-sm hover:shadow-md"
                             role="listitem"
                             itemScope
                             itemType="https://schema.org/Product"
                         >
-                            <figure className="relative aspect-[16/10] overflow-hidden">
-                                <img
-                                    src={product.image}
-                                    alt={product.altText}
-                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                                    loading="lazy"
-                                    width="600"
-                                    height="375"
-                                    itemProp="image"
-                                />
-                            </figure>
+                            <Link to={`/products/${product.slug}`} className="block h-full">
+                                <figure className="relative aspect-[16/10] overflow-hidden">
+                                    <img
+                                        src={product.image}
+                                        alt={`${product.name} — silica sand from Shiv Mines and Minerals`}
+                                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                                        loading="lazy"
+                                        width={600}
+                                        height={375}
+                                        itemProp="image"
+                                    />
+                                </figure>
 
-                            <div className="p-5 sm:p-6">
-                                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-3 mb-3">
-                                    <h3 className="text-lg font-bold text-foreground leading-snug" itemProp="name">{product.name}</h3>
-                                    <span className="text-[11px] font-mono font-semibold text-accent bg-accent/10 px-2.5 py-1 whitespace-nowrap self-start">
-                                        {product.specs}
+                                <div className="p-5 sm:p-6">
+                                    <h3 className="text-lg font-bold text-foreground leading-snug mb-2" itemProp="name">{product.name}</h3>
+                                    <p className="text-sm text-muted-foreground leading-relaxed mb-4" itemProp="description">{product.shortDescription}</p>
+
+                                    <link itemProp="url" href={`https://shivmines.in/products/${product.slug}`} />
+                                    <div itemProp="brand" itemScope itemType="https://schema.org/Brand" className="hidden">
+                                        <meta itemProp="name" content="Shiv Mines and Minerals" />
+                                    </div>
+
+                                    <span className="inline-flex items-center gap-1 text-accent font-semibold text-sm">
+                                        View Details <ArrowRight className="w-4 h-4" aria-hidden="true" />
                                     </span>
                                 </div>
-
-                                <p className="text-sm text-muted-foreground leading-relaxed mb-4" itemProp="description">{product.description}</p>
-
-                                {/* Hidden microdata for offers and aggregateRating (required by Google) */}
-                                <div itemProp="offers" itemScope itemType="https://schema.org/Offer" className="hidden">
-                                    <meta itemProp="priceCurrency" content="INR" />
-                                    <meta itemProp="price" content="0" />
-                                    <meta itemProp="priceValidUntil" content="2027-12-31" />
-                                    <link itemProp="availability" href="https://schema.org/InStock" />
-                                    <meta itemProp="url" content={`https://shivmines.in/products/${product.slug}`} />
-                                </div>
-                                <div itemProp="aggregateRating" itemScope itemType="https://schema.org/AggregateRating" className="hidden">
-                                    <meta itemProp="ratingValue" content="4.8" />
-                                    <meta itemProp="reviewCount" content="47" />
-                                    <meta itemProp="bestRating" content="5" />
-                                    <meta itemProp="worstRating" content="1" />
-                                </div>
-                                <div itemProp="brand" itemScope itemType="https://schema.org/Brand" className="hidden">
-                                    <meta itemProp="name" content="Shiv Mines and Minerals" />
-                                </div>
-
-                                <div className="mb-5">
-                                    <p className="text-xs font-semibold text-foreground mb-2 uppercase tracking-wider">Applications</p>
-                                    <ul className="flex flex-wrap gap-1.5" aria-label={`${product.name} applications`}>
-                                        {product.applications.map((app) => (
-                                            <li
-                                                key={app}
-                                                className="text-[11px] bg-secondary text-muted-foreground px-2.5 py-1 font-medium"
-                                            >
-                                                {app}
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-
-                                <div className="flex items-center gap-4 pt-4 border-t border-border">
-                                    <Link
-                                        to={`/products/${product.slug}`}
-                                        className="text-sm font-semibold text-accent hover:text-accent/80 flex items-center gap-1 transition-colors"
-                                    >
-                                        View Details
-                                        <ArrowRight className="w-4 h-4" aria-hidden="true" />
-                                    </Link>
-                                    <a
-                                        href="#contact"
-                                        className="text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors"
-                                        aria-label={`Request quote for ${product.name}`}
-                                    >
-                                        Request Quote
-                                    </a>
-                                </div>
-                            </div>
+                            </Link>
                         </motion.article>
                     ))}
                 </div>
@@ -188,14 +97,14 @@ const ProductsSection = () => {
                         Beyond our standard silica sand products, our <strong className="text-foreground">silica mine</strong> can produce
                         custom specifications to meet your unique requirements — specific mesh sizes, purity levels, or specialized processing.
                     </p>
-                    <a
-                        href="#contact"
+                    <Link
+                        to="/products/custom-specification"
                         className="btn-primary"
-                        aria-label="Contact us about custom silica sand specifications"
+                        aria-label="Learn about custom silica sand specifications"
                     >
                         Discuss Custom Requirements
                         <ArrowRight className="w-4 h-4" aria-hidden="true" />
-                    </a>
+                    </Link>
                 </motion.div>
             </div>
         </section>

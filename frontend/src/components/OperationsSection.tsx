@@ -25,7 +25,7 @@ const steps = [
 ];
 
 const capabilities = [
-    { value: "1,000", label: "Tonnes produced daily", unit: "tons/day" },
+    { value: "2,000", label: "Tonnes produced daily", unit: "tons/day" },
     { value: "99.5%", label: "Maximum SiO₂ content achievable", unit: "purity" },
     { value: "4–200", label: "Full mesh range of particle sizes", unit: "mesh" },
 ];

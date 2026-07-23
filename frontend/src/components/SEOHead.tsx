@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+import { Head as Helmet } from 'vite-react-ssg';
 
 const SITE_URL = 'https://shivmines.in';
 const SITE_NAME = 'Shiv Mines and Minerals';
@@ -35,12 +35,14 @@ export default function SEOHead({
             <title>{title}</title>
             <meta name="description" content={description} />
             {keywords && <meta name="keywords" content={keywords} />}
-            {noIndex && <meta name="robots" content="noindex, nofollow" />}
+            <meta
+                name="robots"
+                content={noIndex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'}
+            />
             {fullCanonical && <link rel="canonical" href={fullCanonical} />}
 
-            {/* Hreflang — English primary, Hindi alternate */}
+            {/* Hreflang — English only (no Hindi version exists yet) */}
             {fullCanonical && <link rel="alternate" hrefLang="en" href={fullCanonical} />}
-            {fullCanonical && <link rel="alternate" hrefLang="hi" href={fullCanonical} />}
             {fullCanonical && <link rel="alternate" hrefLang="x-default" href={fullCanonical} />}
 
             {/* Geo targeting for Rajasthan, India */}

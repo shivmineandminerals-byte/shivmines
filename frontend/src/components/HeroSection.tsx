@@ -4,16 +4,16 @@ import { useState, useEffect, useCallback } from "react";
 
 const heroSlides = [
     {
-        src: "/images/2.png",
-        alt: "Silica sand processing plant and machinery",
+        src: "/images/2.webp",
+        alt: "Silica sand processing plant and machinery at Shiv Mines and Minerals, Karauli",
     },
     {
-        src: "/images/1.png",
+        src: "/images/1.webp",
         alt: "Aerial view of Shiv Mines and Minerals silica mine and quarry operations",
     },
     {
-        src: "/images/3.png",
-        alt: "Massive silica sand stockpiles at the mining site",
+        src: "/images/3.webp",
+        alt: "Silica sand stockpiles at the Karauli, Rajasthan mining site",
     },
 ];
 
@@ -87,7 +87,6 @@ const HeroSection = () => {
                         }}
                         className="absolute inset-0 w-full h-full object-cover"
                         loading="eager"
-                        fetchPriority="high"
                     />
                 </AnimatePresence>
 
@@ -189,7 +188,7 @@ const HeroSection = () => {
                         className="text-base sm:text-lg md:text-xl text-white/70 leading-relaxed mb-8 sm:mb-10 max-w-xl"
                     >
                         With a daily production capacity of{" "}
-                        <strong className="text-white">1,000 tonnes</strong>, our
+                        <strong className="text-white">2,000 tonnes</strong>, our
                         silica mines in Rajasthan supply high-purity sand to the world's leading
                         glass, foundry, and construction industries.
                     </motion.p>

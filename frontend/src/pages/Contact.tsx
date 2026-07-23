@@ -134,7 +134,7 @@ export default function Contact() {
             {/* Hero */}
             <section className="relative h-[300px] md:h-[400px] flex items-center justify-center">
                 <div className="absolute inset-0">
-                    <img src="/images/hero-quarry.jpg" alt="Contact Us" className="w-full h-full object-cover" />
+                    <img src="/images/hero-quarry.webp" alt="Contact Us" className="w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-black/50" />
                 </div>
                 <motion.h1

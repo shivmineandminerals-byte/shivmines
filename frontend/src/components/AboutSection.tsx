@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { Award, Leaf, Zap } from "lucide-react";
 
-const processingImage = "/images/processing-plant.jpg";
-const sandImage = "/images/sand-texture.jpg";
+const processingImage = "/images/processing-plant.webp";
+const sandImage = "/images/sand-texture.webp";
 
 const fadeIn = { hidden: { opacity: 0 }, visible: { opacity: 1 } };
 
@@ -40,7 +40,7 @@ const AboutSection = () => {
                         </p>
                         <p className="text-body mb-6">
                             We operate three state-of-the-art <strong className="text-foreground">silica sand processing facilities</strong> with
-                            a daily production capacity of 1,000 tonnes. Our silica mine produces high-grade
+                            a daily production capacity of 2,000 tonnes. Our silica mine produces high-grade
                             silica ore that undergoes rigorous quality control—every batch is tested to meet
                             rigorous quality standards and industry-specific requirements.
                         </p>
@@ -72,7 +72,7 @@ const AboutSection = () => {
                         />
                         <figcaption className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
                             <p className="text-white font-semibold">Silica Processing Facility</p>
-                            <p className="text-white/60 text-sm">Processing Capacity: 1,000 tonnes/day</p>
+                            <p className="text-white/60 text-sm">Processing Capacity: 2,000 tonnes/day</p>
                         </figcaption>
                     </motion.figure>
 
