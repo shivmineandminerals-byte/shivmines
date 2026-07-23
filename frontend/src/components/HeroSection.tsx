@@ -176,9 +176,9 @@ const HeroSection = () => {
                         transition={{ duration: 0.5, delay: 0.4 }}
                         className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-serif font-bold text-white mb-6 sm:mb-8 leading-[1.1]"
                     >
-                        Silica Sand Supplier &
+                        Silica Sand Supplier in India
                         <br />
-                        <span className="text-accent">Silica Mines in India</span>
+                        <span className="text-accent">& Silica Mines in Rajasthan</span>
                     </motion.h1>
 
                     <motion.p

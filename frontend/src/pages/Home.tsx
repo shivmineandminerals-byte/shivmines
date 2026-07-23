@@ -40,8 +40,8 @@ export default function Home() {
     return (
         <div className="min-h-screen bg-background">
             <SEOHead
-                title="Silica Sand Supplier in India | Silica Mines & Manufacturer | Shiv Mines & Minerals"
-                description="Silica sand supplier, manufacturer & exporter in India since 2006. Lab-tested construction, industrial (99%+ SiO₂), glass (99.5%+ SiO₂), foundry, frac & custom silica sand and silica powder — supplied across India and worldwide. Get a bulk quote."
+                title="Silica Sand Supplier in India | Silica Mines in Rajasthan | Shiv Mines & Minerals"
+                description="Silica sand supplier, manufacturer & exporter in India — silica mines in Rajasthan since 2006. Lab-tested construction, industrial (99%+ SiO₂), glass (99.5%+ SiO₂), foundry, frac & custom silica sand and silica powder, supplied across India and worldwide. Get a bulk quote."
                 canonical="/"
                 keywords="silica sand supplier india, silica mines in india, silica sand manufacturer india, silica sand exporter india, silica mines, silica sand mines in india, silica sand supplier, silica sand mines in rajasthan, silica powder, shiv mines and minerals"
                 schemaMarkup={[buildFaqSchema(homeFaqs)]}
