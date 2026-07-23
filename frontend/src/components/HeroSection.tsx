@@ -160,7 +160,7 @@ const HeroSection = () => {
 
             {/* Content */}
             <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
-                <div className="max-w-2xl">
+                <div className="max-w-3xl lg:max-w-4xl">
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -174,11 +174,10 @@ const HeroSection = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.4 }}
-                        className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-serif font-bold text-white mb-6 sm:mb-8 leading-[1.1]"
+                        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold text-white mb-6 sm:mb-8 leading-relaxed sm:leading-[1.38]"
                     >
-                        Silica Sand Supplier in India
-                        <br />
-                        <span className="text-accent">& Silica Mines in Rajasthan</span>
+                        <span className="block mb-2 sm:mb-3">Silica Sand Supplier &</span>
+                        <span className="text-accent block">Silica Mines in India</span>
                     </motion.h1>
 
                     <motion.p
