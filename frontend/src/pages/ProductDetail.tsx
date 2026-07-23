@@ -107,29 +107,32 @@ export default function ProductDetail() {
 
             <section className="py-12 md:py-20">
                 <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
-                    {/* Front-loaded answer snippet for AI Overviews / featured snippets */}
-                    <p className="text-lg md:text-xl text-slate-800 font-medium leading-relaxed max-w-3xl mb-12 border-l-4 border-accent pl-5">
-                        {product.answerSnippet}
-                    </p>
-
                     <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
                         <motion.div {...fadeInLeft} className="lg:sticky lg:top-32">
-                            <div className="rounded-lg overflow-hidden shadow-lg">
+                            <div className="rounded-lg overflow-hidden shadow-lg border border-stone-200">
                                 <img src={product.image} alt={`${product.name} — silica sand from Karauli, Rajasthan`} className="w-full h-auto object-cover" loading="lazy" width={800} height={600} />
                             </div>
                         </motion.div>
 
                         <motion.div {...fadeInRight}>
-                            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">About {product.name}</h2>
-                            <p className="text-slate-600 leading-relaxed mb-10">{product.description}</p>
+                            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">About {product.name}</h2>
+                            
+                            {/* Summary Lead Highlight */}
+                            <div className="bg-stone-50 border-l-4 border-accent p-4 rounded-r-lg mb-6">
+                                <p className="text-slate-800 font-medium leading-relaxed">
+                                    {product.answerSnippet}
+                                </p>
+                            </div>
+
+                            <p className="text-slate-600 leading-relaxed mb-8">{product.description}</p>
 
                             <div className="mb-10">
                                 <h3 className="text-xl font-bold text-slate-900 mb-4">Typical Specifications</h3>
-                                <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
+                                <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 bg-stone-50/50 p-5 rounded-lg border border-stone-100">
                                     {product.specs.map((s, i) => (
-                                        <div key={i} className="flex justify-between border-b border-stone-100 py-2">
-                                            <dt className="text-slate-500">{s.label}</dt>
-                                            <dd className="font-semibold text-slate-900 text-right">{s.value}</dd>
+                                        <div key={i} className="flex justify-between border-b border-stone-200/60 py-2 last:border-b-0">
+                                            <dt className="text-slate-500 text-sm">{s.label}</dt>
+                                            <dd className="font-semibold text-slate-900 text-sm text-right">{s.value}</dd>
                                         </div>
                                     ))}
                                 </dl>
@@ -137,7 +140,7 @@ export default function ProductDetail() {
 
                             <div className="mb-10">
                                 <h3 className="text-xl font-bold text-slate-900 mb-4">Applications</h3>
-                                <ul className="space-y-4">
+                                <ul className="space-y-3">
                                     {product.applications.map((app, i) => (
                                         <li key={i} className="flex gap-3">
                                             <span className="w-2 h-2 bg-copper rounded-full mt-2 flex-shrink-0" />
@@ -149,7 +152,7 @@ export default function ProductDetail() {
 
                             <div className="mb-10">
                                 <h3 className="text-xl font-bold text-slate-900 mb-4">Salient Features</h3>
-                                <ul className="space-y-4">
+                                <ul className="space-y-3">
                                     {product.features.map((f, i) => (
                                         <li key={i} className="flex gap-3">
                                             <span className="w-2 h-2 bg-copper rounded-full mt-2 flex-shrink-0" />
@@ -159,7 +162,7 @@ export default function ProductDetail() {
                                 </ul>
                             </div>
 
-                            <Link to="/contact" className="inline-flex items-center gap-2 bg-copper hover:bg-copper/90 text-white font-semibold px-8 py-4 rounded-lg transition-colors">
+                            <Link to="/contact" className="inline-flex items-center gap-2 bg-copper hover:bg-copper/90 text-white font-semibold px-8 py-4 rounded-lg transition-colors shadow-sm">
                                 Request a Quote <ArrowRight className="w-5 h-5" />
                             </Link>
                         </motion.div>
