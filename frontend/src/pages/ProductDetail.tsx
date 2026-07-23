@@ -1,6 +1,6 @@
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { motion, type Transition } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, CheckCircle2, ShieldCheck, PhoneCall } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
@@ -15,14 +15,14 @@ const smoothTransition: Transition = { duration: 0.4, ease: [0.4, 0, 0.2, 1] };
 const fadeInLeft = {
     initial: { opacity: 0, x: -20 },
     whileInView: { opacity: 1, x: 0 },
-    viewport: { once: true, margin: '-100px' },
+    viewport: { once: true, margin: '-50px' },
     transition: smoothTransition,
 };
 
 const fadeInRight = {
     initial: { opacity: 0, x: 20 },
     whileInView: { opacity: 1, x: 0 },
-    viewport: { once: true, margin: '-100px' },
+    viewport: { once: true, margin: '-50px' },
     transition: smoothTransition,
 };
 
@@ -35,8 +35,6 @@ export default function ProductDetail() {
 
     const product = getProduct(slug)!;
 
-    // Product schema — NO fake aggregateRating, NO fake price:0.
-    // B2B quote model: describe availability and manufacturer, let buyers request a quote.
     const productSchema = {
         '@context': 'https://schema.org',
         '@type': 'Product',
@@ -50,7 +48,6 @@ export default function ProductDetail() {
             name: 'Shiv Mines and Minerals',
             url: 'https://shivmines.in',
         },
-        // No numeric price (quote-based). AvailableAtOrFrom + a quote action instead of a fake Offer price.
         offers: {
             '@type': 'Offer',
             url: `https://shivmines.in/products/${slug}`,
@@ -75,7 +72,7 @@ export default function ProductDetail() {
     const usedInIndustries = getIndustriesForProduct(slug);
 
     return (
-        <div className="min-h-screen bg-white">
+        <div className="min-h-screen bg-white pt-16 md:pt-20">
             <SEOHead
                 title={product.seoTitle}
                 description={product.seoDescription}
@@ -86,16 +83,17 @@ export default function ProductDetail() {
             />
             <Header />
 
-            <section className="relative h-[300px] md:h-[400px] flex items-center justify-center">
+            {/* Page Header / Hero Title */}
+            <section className="relative h-[220px] md:h-[300px] flex items-center justify-center">
                 <div className="absolute inset-0">
                     <img src="/images/hero-quarry.webp" alt={`${product.name} from Shiv Mines and Minerals`} className="w-full h-full object-cover" width={1600} height={400} />
-                    <div className="absolute inset-0 bg-black/50" />
+                    <div className="absolute inset-0 bg-black/60" />
                 </div>
                 <motion.h1
                     initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={smoothTransition}
-                    className="relative z-10 text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center px-4"
+                    className="relative z-10 text-3xl sm:text-4xl md:text-5xl font-bold text-white text-center px-4"
                 >
                     {product.name}
                 </motion.h1>
@@ -105,82 +103,152 @@ export default function ProductDetail() {
                 <Breadcrumbs items={crumbs} />
             </div>
 
-            <section className="py-12 md:py-20">
+            {/* Top Overview Grid: Image (Left) + Core Details & CTA (Right) */}
+            <section className="py-8 md:py-12">
                 <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
-                    <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-                        <motion.div {...fadeInLeft} className="lg:sticky lg:top-32">
-                            <div className="rounded-lg overflow-hidden shadow-lg border border-stone-200">
-                                <img src={product.image} alt={`${product.name} — silica sand from Karauli, Rajasthan`} className="w-full h-auto object-cover" loading="lazy" width={800} height={600} />
+                    <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                        {/* Left: Product Image */}
+                        <motion.div {...fadeInLeft}>
+                            <div className="rounded-xl overflow-hidden shadow-md border border-stone-200 bg-stone-50">
+                                <img
+                                    src={product.image}
+                                    alt={`${product.name} — silica sand from Karauli, Rajasthan`}
+                                    className="w-full h-72 sm:h-88 lg:h-[400px] object-cover"
+                                    loading="lazy"
+                                    width={800}
+                                    height={600}
+                                />
                             </div>
                         </motion.div>
 
-                        <motion.div {...fadeInRight}>
-                            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">About {product.name}</h2>
+                        {/* Right: Title, Summary, Description & Direct CTA */}
+                        <motion.div {...fadeInRight} className="flex flex-col justify-center">
+                            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-3">
+                                Premium {product.name}
+                            </h2>
                             
-                            {/* Summary Lead Highlight */}
-                            <div className="bg-stone-50 border-l-4 border-accent p-4 rounded-r-lg mb-6">
-                                <p className="text-slate-800 font-medium leading-relaxed">
+                            {/* Key Summary Highlight */}
+                            <div className="bg-stone-50 border-l-4 border-accent p-4 rounded-r-lg mb-4">
+                                <p className="text-slate-800 font-medium text-sm sm:text-base leading-relaxed">
                                     {product.answerSnippet}
                                 </p>
                             </div>
 
-                            <p className="text-slate-600 leading-relaxed mb-8">{product.description}</p>
+                            <p className="text-slate-600 leading-relaxed mb-6 text-sm sm:text-base">
+                                {product.description}
+                            </p>
 
-                            <div className="mb-10">
-                                <h3 className="text-xl font-bold text-slate-900 mb-4">Typical Specifications</h3>
-                                <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 bg-stone-50/50 p-5 rounded-lg border border-stone-100">
-                                    {product.specs.map((s, i) => (
-                                        <div key={i} className="flex justify-between border-b border-stone-200/60 py-2 last:border-b-0">
-                                            <dt className="text-slate-500 text-sm">{s.label}</dt>
-                                            <dd className="font-semibold text-slate-900 text-sm text-right">{s.value}</dd>
-                                        </div>
-                                    ))}
-                                </dl>
+                            {/* Direct Actions */}
+                            <div className="flex flex-wrap gap-4 pt-1">
+                                <Link
+                                    to="/contact"
+                                    className="inline-flex items-center justify-center gap-2 bg-copper hover:bg-copper/90 text-white font-semibold px-6 py-3 rounded-lg transition-colors shadow-sm text-sm sm:text-base"
+                                >
+                                    Request Bulk Quote <ArrowRight className="w-4 h-4" />
+                                </Link>
+                                <a
+                                    href="tel:+919116758641"
+                                    className="inline-flex items-center justify-center gap-2 border border-slate-300 hover:border-slate-400 text-slate-700 font-semibold px-5 py-3 rounded-lg transition-colors text-sm sm:text-base bg-white"
+                                >
+                                    <PhoneCall className="w-4 h-4 text-copper" /> Call Sales Team
+                                </a>
                             </div>
-
-                            <div className="mb-10">
-                                <h3 className="text-xl font-bold text-slate-900 mb-4">Applications</h3>
-                                <ul className="space-y-3">
-                                    {product.applications.map((app, i) => (
-                                        <li key={i} className="flex gap-3">
-                                            <span className="w-2 h-2 bg-copper rounded-full mt-2 flex-shrink-0" />
-                                            <div><span className="font-semibold text-slate-900">{app.title}:</span> <span className="text-slate-600">{app.description}</span></div>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-
-                            <div className="mb-10">
-                                <h3 className="text-xl font-bold text-slate-900 mb-4">Salient Features</h3>
-                                <ul className="space-y-3">
-                                    {product.features.map((f, i) => (
-                                        <li key={i} className="flex gap-3">
-                                            <span className="w-2 h-2 bg-copper rounded-full mt-2 flex-shrink-0" />
-                                            <div><span className="font-semibold text-slate-900">{f.title}:</span> <span className="text-slate-600">{f.description}</span></div>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-
-                            <Link to="/contact" className="inline-flex items-center gap-2 bg-copper hover:bg-copper/90 text-white font-semibold px-8 py-4 rounded-lg transition-colors shadow-sm">
-                                Request a Quote <ArrowRight className="w-5 h-5" />
-                            </Link>
                         </motion.div>
                     </div>
                 </div>
             </section>
 
-            {/* Cross-link into the industry silo (completes product ↔ industry loop) */}
+            {/* Technical Specifications Section */}
+            <section className="py-12 bg-stone-50 border-y border-stone-200/80">
+                <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
+                    <div className="max-w-3xl mb-8">
+                        <p className="text-xs uppercase tracking-wider text-copper font-bold mb-1">Technical Data Sheet</p>
+                        <h2 className="text-2xl md:text-3xl font-bold text-slate-900">
+                            Typical Specifications & Parameters
+                        </h2>
+                    </div>
+
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        {product.specs.map((s, i) => (
+                            <div key={i} className="bg-white p-5 rounded-lg border border-stone-200/80 shadow-sm flex flex-col justify-between">
+                                <dt className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">{s.label}</dt>
+                                <dd className="text-base sm:text-lg font-bold text-slate-900">{s.value}</dd>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Applications & Salient Features (Balanced 2-Column Grid) */}
+            <section className="py-12 md:py-16 bg-white">
+                <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
+                    <div className="grid lg:grid-cols-2 gap-10 lg:gap-14">
+                        {/* Applications */}
+                        <motion.div {...fadeInLeft} className="bg-stone-50/70 p-6 sm:p-8 rounded-xl border border-stone-200/80">
+                            <div className="flex items-center gap-3 mb-6">
+                                <div className="p-2.5 bg-copper/10 rounded-lg text-copper">
+                                    <CheckCircle2 className="w-6 h-6" />
+                                </div>
+                                <h3 className="text-xl sm:text-2xl font-bold text-slate-900">Primary Applications</h3>
+                            </div>
+                            <ul className="space-y-4">
+                                {product.applications.map((app, i) => (
+                                    <li key={i} className="border-b border-stone-200/60 pb-3.5 last:border-b-0 last:pb-0">
+                                        <h4 className="font-bold text-slate-900 text-base mb-1">{app.title}</h4>
+                                        <p className="text-slate-600 text-sm leading-relaxed">{app.description}</p>
+                                    </li>
+                                ))}
+                            </ul>
+                        </motion.div>
+
+                        {/* Salient Features */}
+                        <motion.div {...fadeInRight} className="bg-stone-50/70 p-6 sm:p-8 rounded-xl border border-stone-200/80">
+                            <div className="flex items-center gap-3 mb-6">
+                                <div className="p-2.5 bg-copper/10 rounded-lg text-copper">
+                                    <ShieldCheck className="w-6 h-6" />
+                                </div>
+                                <h3 className="text-xl sm:text-2xl font-bold text-slate-900">Salient Features & Advantages</h3>
+                            </div>
+                            <ul className="space-y-4">
+                                {product.features.map((f, i) => (
+                                    <li key={i} className="border-b border-stone-200/60 pb-3.5 last:border-b-0 last:pb-0">
+                                        <h4 className="font-bold text-slate-900 text-base mb-1">{f.title}</h4>
+                                        <p className="text-slate-600 text-sm leading-relaxed">{f.description}</p>
+                                    </li>
+                                ))}
+                            </ul>
+                        </motion.div>
+                    </div>
+
+                    {/* Bottom CTA Banner */}
+                    <div className="mt-12 bg-gradient-to-r from-slate-900 to-slate-800 text-white rounded-xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-md">
+                        <div>
+                            <h3 className="text-lg sm:text-xl font-bold mb-1.5">Need Custom Specifications for {product.name}?</h3>
+                            <p className="text-slate-300 text-xs sm:text-sm max-w-xl">
+                                We offer custom grain sizing, washing, mesh screening, and bulk jumbo bag packaging tailored to your manufacturing process.
+                            </p>
+                        </div>
+                        <Link
+                            to="/contact"
+                            className="flex-shrink-0 bg-copper hover:bg-copper/90 text-white font-semibold px-6 py-3 rounded-lg transition-colors text-sm sm:text-base whitespace-nowrap"
+                        >
+                            Get Custom Quote
+                        </Link>
+                    </div>
+                </div>
+            </section>
+
+            {/* Used in these industries */}
             {usedInIndustries.length > 0 && (
-                <section className="py-12 border-t border-stone-100">
+                <section className="py-10 border-t border-stone-200 bg-stone-50">
                     <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
-                        <h2 className="text-2xl font-bold text-slate-900 mb-6">Used in these industries</h2>
-                        <div className="flex flex-wrap gap-3">
+                        <h2 className="text-lg font-bold text-slate-900 mb-4">Industries Using {product.name}</h2>
+                        <div className="flex flex-wrap gap-2.5">
                             {usedInIndustries.map((ind) => (
                                 <Link
                                     key={ind.slug}
                                     to={`/industries/${ind.slug}`}
-                                    className="inline-flex items-center gap-1 rounded-full border border-stone-300 px-4 py-2 text-sm font-medium text-slate-700 hover:border-accent hover:text-accent transition-colors"
+                                    className="inline-flex items-center gap-1.5 rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 hover:border-copper hover:text-copper transition-colors shadow-xs"
                                 >
                                     {ind.name}
                                 </Link>
@@ -190,22 +258,23 @@ export default function ProductDetail() {
                 </section>
             )}
 
-            {/* Visible FAQ — matches the FAQPage schema above */}
-            <div className="bg-stone-50">
+            {/* Visible FAQ */}
+            <div className="bg-white">
                 <FAQSection faqs={product.faqs} heading={`${product.name} — FAQs`} />
             </div>
 
-            <section className="py-16">
+            {/* Related Products */}
+            <section className="py-14 bg-stone-50 border-t border-stone-200">
                 <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
-                    <h2 className="text-2xl md:text-3xl font-bold text-slate-900 text-center mb-12">Explore Other Products</h2>
+                    <h2 className="text-2xl md:text-3xl font-bold text-slate-900 text-center mb-10">Explore Other Silica Grades</h2>
                     <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                         {relatedProducts.map((prod) => (
-                            <Link key={prod.slug} to={`/products/${prod.slug}`} className="group bg-white rounded-lg overflow-hidden shadow-sm border border-stone-200 hover:shadow-lg transition-shadow">
-                                <div className="h-48 overflow-hidden">
+                            <Link key={prod.slug} to={`/products/${prod.slug}`} className="group bg-white rounded-lg overflow-hidden shadow-sm border border-stone-200 hover:shadow-md transition-all">
+                                <div className="h-44 overflow-hidden">
                                     <img src={prod.image} alt={prod.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" width={400} height={300} />
                                 </div>
                                 <div className="p-4">
-                                    <h3 className="font-semibold text-slate-900 group-hover:text-copper transition-colors">{prod.name}</h3>
+                                    <h3 className="font-bold text-slate-900 group-hover:text-copper transition-colors text-base">{prod.name}</h3>
                                 </div>
                             </Link>
                         ))}
